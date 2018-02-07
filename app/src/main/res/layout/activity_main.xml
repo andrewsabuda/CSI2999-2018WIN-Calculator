@@ -8,10 +8,13 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/Calculator_Screen"
         android:layout_width="350dp"
         android:layout_height="115dp"
         android:inputType="text"
-        android:id="@+id/editText2" />
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        />
 
 
     <Button
@@ -19,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:backgroundTint="#b22222"
         android:text="@string/_0" />
@@ -30,6 +33,7 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/Zero_Button"
+        android:layout_toRightOf="@id/Zero_Button"
         android:backgroundTint="#b22222"
         android:text="@string/dot" />
 
@@ -39,6 +43,7 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/Dot_Button"
+        android:layout_toRightOf="@+id/Dot_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Parenth" />
 
@@ -48,6 +53,7 @@
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/Parenth_Button"
+        android:layout_toRightOf="@+id/Parenth_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Equals" />
 
@@ -68,6 +74,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/One_Button"
         android:layout_toEndOf="@+id/Zero_Button"
+        android:layout_toRightOf="@id/Zero_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_2" />
 
@@ -77,6 +84,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/Two_Button"
         android:layout_toEndOf="@+id/Dot_Button"
+        android:layout_toRightOf="@+id/Dot_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_3" />
 
@@ -86,6 +94,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Equals_Button"
         android:layout_toEndOf="@+id/Three_Button"
+        android:layout_toRightOf="@+id/Three_Button"
         android:backgroundTint="#b22222"
         android:text="@string/plus" />
 
@@ -95,6 +104,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/One_Button"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:backgroundTint="#b22222"
         android:text="@string/_4" />
 
@@ -104,6 +114,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Two_Button"
         android:layout_toEndOf="@+id/One_Button"
+        android:layout_toRightOf="@+id/One_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_5" />
 
@@ -113,6 +124,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/Five_Button"
         android:layout_toEndOf="@+id/Two_Button"
+        android:layout_toRightOf="@+id/Two_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_6" />
 
@@ -122,6 +134,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Four_Button"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:backgroundTint="#b22222"
         android:text="@string/_7" />
 
@@ -131,6 +144,7 @@
         android:layout_height="80dp"
         android:layout_below="@+id/Mult_Button"
         android:layout_toEndOf="@+id/Seven_Button"
+        android:layout_toRightOf="@+id/Seven_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_8" />
 
@@ -140,6 +154,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Six_Button"
         android:layout_toEndOf="@+id/Five_Button"
+        android:layout_toRightOf="@+id/Five_Button"
         android:backgroundTint="#b22222"
         android:text="@string/_9" />
 
@@ -149,6 +164,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Add_Button"
         android:layout_toEndOf="@+id/Three_Button"
+        android:layout_toRightOf="@+id/Three_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Sub" />
 
@@ -158,6 +174,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Sub_Button"
         android:layout_toEndOf="@+id/Nine_Button"
+        android:layout_toRightOf="@+id/Nine_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Perc" />
 
@@ -167,6 +184,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Modulo_Button"
         android:layout_toEndOf="@+id/Nine_Button"
+        android:layout_toRightOf="@+id/Nine_Button"
         android:backgroundTint="#b22222"
         android:text="@string/DEL" />
 
@@ -176,6 +194,7 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Nine_Button"
         android:layout_toEndOf="@+id/Div_Button"
+        android:layout_toRightOf="@+id/Div_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Mult" />
 
@@ -185,6 +204,7 @@
         android:layout_height="80dp"
         android:layout_alignTop="@+id/Mult_Button"
         android:layout_toEndOf="@+id/Clear_Button"
+        android:layout_toRightOf="@+id/Clear_Button"
         android:backgroundTint="#b22222"
         android:text="@string/Div" />
 
@@ -194,30 +214,8 @@
         android:layout_height="80dp"
         android:layout_above="@+id/Seven_Button"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:backgroundTint="#b22222"
         android:text="@string/AC" />
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_marginTop="28dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-    <TextView
-        android:id="@+id/tvInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText2"
-        android:layout_alignLeft="@+id/tvResult"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignStart="@+id/tvResult"
-        android:layout_below="@+id/tvResult"
-        android:layout_marginTop="18dp"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
 </RelativeLayout>
