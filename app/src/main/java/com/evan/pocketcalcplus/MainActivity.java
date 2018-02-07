@@ -10,7 +10,7 @@ public class MainActivity extends AppCompatActivity {
             mDiv_Button, mDel_Button, mClear_Button, mModulo_Button, mAdd_Button;
 
 
-// hjghjgkjghjgjgkj
+// dr calculeto lives
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
