@@ -63,105 +63,105 @@ public class MainActivity extends AppCompatActivity {
         mTwo_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mTwo_Button.getText().toString());
+                mCalculatorScreen.append(mTwo_Button.getText().toString());
             }
         });
 
         mThree_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mThree_Button.getText().toString() + "3");
+                mCalculatorScreen.append(mThree_Button.getText().toString());
             }
         });
 
         mFour_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mFour_Button.getText().toString() + "4");
+                mCalculatorScreen.append(mFour_Button.getText().toString());
             }
         });
 
         mFive_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mFive_Button.getText().toString() + "5");
+                mCalculatorScreen.append(mFive_Button.getText().toString());
             }
         });
 
         mSix_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mSix_Button.getText().toString() + "6");
+                mCalculatorScreen.append(mSix_Button.getText().toString());
             }
         });
 
         mSeven_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mSeven_Button.getText().toString() + "7");
+                mCalculatorScreen.append(mSeven_Button.getText().toString());
             }
         });
 
         mEight_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mEight_Button.getText().toString() + "8");
+                mCalculatorScreen.append(mEight_Button.getText().toString());
             }
         });
 
         mNine_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mNine_Button.getText().toString() + "9");
+                mCalculatorScreen.append(mNine_Button.getText().toString());
             }
         });
 
         mSub_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mSub_Button.getText().toString() + "-");
+                mCalculatorScreen.append(mSub_Button.getText().toString());
             }
         });
 
         mMult_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mMult_Button.getText().toString() + "*");
+                mCalculatorScreen.append(mMult_Button.getText().toString());
             }
         });
 
         mDiv_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mDiv_Button.getText().toString() + "/");
+                mCalculatorScreen.append(mDiv_Button.getText().toString());
             }
         });
 
         mDel_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mDel_Button.getText().toString());
+                mCalculatorScreen.append(mDel_Button.getText().toString());
             }
         });
 
         mClear_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText("");
+                mCalculatorScreen.append("");
             }
         });
 
         mModulo_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mModulo_Button.getText().toString());
+                mCalculatorScreen.append(mModulo_Button.getText().toString());
             }
         });
 
         mAdd_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.setText(mAdd_Button.getText().toString());
+                mCalculatorScreen.append(mAdd_Button.getText().toString());
             }
         });
 
