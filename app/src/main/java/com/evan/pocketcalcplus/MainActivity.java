@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mZero_Button, mOne_Button, mTwo_Button, mThree_Button, mFour_Button, mFive_Button, mSix_Button,
             mSeven_Button, mEight_Button, mNine_Button, mSub_Button, mMult_Button,
             mDiv_Button, mDel_Button, mClear_Button, mModulo_Button, mAdd_Button;
-    // This creats the EditText for the calculator screen
+    // This creates the EditText for the calculator screen
     private EditText mCalculatorScreen;
 
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // The following code initializes the buttons and finds them by their xml ids
         mZero_Button = (Button) findViewById(R.id.Zero_Button);
         mOne_Button = (Button) findViewById(R.id.One_Button);
         mTwo_Button = (Button) findViewById(R.id.Two_Button);
@@ -41,10 +43,8 @@ public class MainActivity extends AppCompatActivity {
         mClear_Button = (Button) findViewById(R.id.Del_Button);
         mModulo_Button = (Button) findViewById(R.id.Modulo_Button);
         mAdd_Button = (Button) findViewById(R.id.Add_Button);
-//        input = (TextView)findViewById(R.id.tvInput);
-//        result = (TextView)findViewById(R.id.tvResult);
         mCalculatorScreen = (EditText) findViewById(R.id.Calculator_Screen);
-        
+
 
         mZero_Button.setOnClickListener(new View.OnClickListener() {
             @Override
