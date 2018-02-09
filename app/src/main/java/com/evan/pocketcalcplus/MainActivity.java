@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // This creates the EditText for the calculator screen
     private EditText mCalculatorScreen;
 
-
+//test by clay
 
 // dr calculeto lives
     @Override
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         mSub_Button = (Button) findViewById(R.id.Sub_Button);
         mMult_Button = (Button) findViewById(R.id.Mult_Button);
         mDiv_Button = (Button) findViewById(R.id.Div_Button);
-        mDel_Button = (Button) findViewById(R.id.Clear_Button);
-        mClear_Button = (Button) findViewById(R.id.Del_Button);
+        mDel_Button = (Button) findViewById(R.id.Del_Button);
+        mClear_Button = (Button) findViewById(R.id.Clear_Button);
         mModulo_Button = (Button) findViewById(R.id.Modulo_Button);
         mAdd_Button = (Button) findViewById(R.id.Add_Button);
         mCalculatorScreen = (EditText) findViewById(R.id.Calculator_Screen);
@@ -140,14 +140,16 @@ public class MainActivity extends AppCompatActivity {
         mDel_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.append(mDel_Button.getText().toString());
+                int length = mCalculatorScreen.getText().length();
+                if (length > 0)
+                    mCalculatorScreen.setTextKeepState(mCalculatorScreen.getText().delete(length-1,length));
             }
         });
 
         mClear_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCalculatorScreen.append("");
+                mCalculatorScreen.setText("");
             }
         });
 
