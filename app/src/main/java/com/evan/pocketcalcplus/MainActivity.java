@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
                 int answer = RegexParser.parsePrefix(prefix);
-                mCalculatorScreen.setText(String.valueOf(answer));
+                mCalculatorScreen.setTextKeepState(String.valueOf(answer));
             }
         });
     }
