@@ -182,12 +182,12 @@ public class MainActivity extends AppCompatActivity {
                 if(mCalculatorScreen.getText().toString().length() > 0) {
                     String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
                     double answer = RegexParser.parsePrefix(prefix);
+                    String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
                     if(answer % 1 == 0) {
-                        int intAnswer = (int) answer;
-                        mCalculatorScreen.setTextKeepState(String.valueOf(intAnswer));
+                        mCalculatorScreen.setTextKeepState(answerString.substring(0,answerString.length() - 1));
                     }
                     else {
-                        mCalculatorScreen.setTextKeepState(String.valueOf(answer));
+                        mCalculatorScreen.setTextKeepState(answerString);
                     }
                 }
             }
