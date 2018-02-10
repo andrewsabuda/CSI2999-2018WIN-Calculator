@@ -10,8 +10,12 @@
     <EditText
         android:id="@+id/Calculator_Screen"
         android:layout_width="350dp"
-        android:layout_height="115dp"
-        android:inputType="text" />
+        android:layout_height="50dp"
+        android:layout_above="@+id/Del_Button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:inputType="text"
+        android:textAlignment="textEnd" />
 
     <Button
         android:id="@+id/Zero_Button"
