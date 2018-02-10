@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class RegexParser {
 
-    public static int performOperation(String operator, int operand1, int operand2) {
+    public static double performOperation(String operator, double operand1, double operand2) {
         switch(operator) {
             case "+":
                 return operand1 + operand2;
@@ -23,30 +23,30 @@ public class RegexParser {
             case "%":
                 return operand1 % operand2;
             case "^":
-                return (int) Math.pow(operand1, operand2);
+                return Math.pow(operand1, operand2);
             default:
             System.out.println("Bad operator:"+operator);
             return 0;
         }
     }
 
-    private static int parsePrefixRecursive(ArrayList<String> input) {
+    private static double parsePrefixRecursive(ArrayList<String> input) {
         // Pop the first element of the array list.
         String current = input.remove(0);
 
         // Check for if it's a number or operator.
         Pattern patternOperator = Pattern.compile("[-+*/^%]");
         Matcher matchOperator = patternOperator.matcher(current);
-        Pattern patternNumber = Pattern.compile("-?([0-9])+");
+        Pattern patternNumber = Pattern.compile("-?([.0-9])+");
         Matcher matchNumber = patternNumber.matcher(current);
 
         if(matchNumber.matches()) {
             // If it's a number, parse it.
-            return Integer.parseInt(current);
+            return Double.parseDouble(current);
         } else if (matchOperator.matches()) {
             // If it's a operator, parse the next two numbers and perform the operation.
-            int operand1 = parsePrefixRecursive(input);
-            int operand2 = parsePrefixRecursive(input);
+            double operand1 = parsePrefixRecursive(input);
+            double operand2 = parsePrefixRecursive(input);
             return performOperation(current, operand1, operand2);
         } else {
             System.out.println("No Operation:"+current);
@@ -54,7 +54,7 @@ public class RegexParser {
         }
     }
 
-    public static int parsePrefix(String input) {
+    public static double parsePrefix(String input) {
         ArrayList<String> split = new ArrayList<String>(
             Arrays.asList(input.split(" ")));
         split.removeAll(Arrays.asList("", null));

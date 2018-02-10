@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     // The following code creates all the buttons but does not initialize them
     private Button mZero_Button, mOne_Button, mTwo_Button, mThree_Button, mFour_Button, mFive_Button, mSix_Button,
             mSeven_Button, mEight_Button, mNine_Button, mSub_Button, mMult_Button,
-            mDiv_Button, mDel_Button, mClear_Button, mModulo_Button, mAdd_Button, mEquals_Button ;
+            mDiv_Button, mDel_Button, mClear_Button, mModulo_Button, mAdd_Button, mDot_Button, mEquals_Button ;
     // This creates the EditText for the calculator screen
     private EditText mCalculatorScreen;
 
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mClear_Button = (Button) findViewById(R.id.Clear_Button);
         mModulo_Button = (Button) findViewById(R.id.Modulo_Button);
         mAdd_Button = (Button) findViewById(R.id.Add_Button);
+        mDot_Button = (Button) findViewById(R.id.Dot_Button);
         mEquals_Button = (Button) findViewById(R.id.Equals_Button);
         mCalculatorScreen = (EditText) findViewById(R.id.Calculator_Screen);
 
@@ -168,12 +169,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mDot_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCalculatorScreen.append(mDot_Button.getText().toString());
+            }
+        });
+
         mEquals_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
-                int answer = RegexParser.parsePrefix(prefix);
-                mCalculatorScreen.setTextKeepState(String.valueOf(answer));
+                if(mCalculatorScreen.getText().toString().length() > 0) {
+                    String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
+                    double answer = RegexParser.parsePrefix(prefix);
+                    if(answer % 1 == 0) {
+                        int intAnswer = (int) answer;
+                        mCalculatorScreen.setTextKeepState(String.valueOf(intAnswer));
+                    }
+                    else {
+                        mCalculatorScreen.setTextKeepState(String.valueOf(answer));
+                    }
+                }
             }
         });
     }
