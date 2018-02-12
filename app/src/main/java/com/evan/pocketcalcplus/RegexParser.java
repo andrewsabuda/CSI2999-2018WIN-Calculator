@@ -19,7 +19,12 @@ public class RegexParser {
             case "*":
                 return operand1 * operand2;
             case "/":
-                return operand1 / operand2;
+                if(operand2 == 0){
+                    System.out.println("Error");
+                }
+                else {
+                    return operand1 / operand2;
+                }
             case "%":
                 return operand1 % operand2;
             case "^":
