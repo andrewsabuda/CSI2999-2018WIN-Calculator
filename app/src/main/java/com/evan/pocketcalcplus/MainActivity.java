@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     double answer = RegexParser.parsePrefix(prefix);
                     String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
                     if(answer % 1 == 0) {
-                        mCalculatorScreen.setTextKeepState(answerString.substring(0,answerString.length() - 1));
+                        mCalculatorScreen.setTextKeepState(answerString.substring(0,answerString.length() - 2));
                     }
                     else {
                         mCalculatorScreen.setTextKeepState(answerString);
