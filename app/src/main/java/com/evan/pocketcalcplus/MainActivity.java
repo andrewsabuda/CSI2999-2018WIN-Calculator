@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // The following code creates all the buttons but does not initialize them
     private Button mZero_Button, mOne_Button, mTwo_Button, mThree_Button, mFour_Button, mFive_Button, mSix_Button,
             mSeven_Button, mEight_Button, mNine_Button, mSub_Button, mMult_Button,
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         mDel_Button = (Button) findViewById(R.id.buttonDelete);
         mClear_Button = (Button) findViewById(R.id.buttonClear);
         mDot_Button = (Button) findViewById(R.id.buttonDecimalPoint);
-        mEquals_Button = (Button) findViewById(R.id.Equals_Button);
+        mEquals_Button = (Button) findViewById(R.id.buttonEquals);
 
         mCalculatorScreen.setInputType(InputType.TYPE_NULL);
         mCalculatorScreen.setTextIsSelectable(true);
@@ -198,8 +198,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()) {
 
-
-
+        }
+    }
 
 }
