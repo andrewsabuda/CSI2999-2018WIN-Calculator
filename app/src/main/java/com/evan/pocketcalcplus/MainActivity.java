@@ -11,198 +11,109 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    // The following code creates all the buttons but does not initialize them
-    private Button mZero_Button, mOne_Button, mTwo_Button, mThree_Button, mFour_Button, mFive_Button, mSix_Button,
-            mSeven_Button, mEight_Button, mNine_Button, mSub_Button, mMult_Button,
-            mDiv_Button, mDel_Button, mClear_Button, mModulo_Button, mAdd_Button, mDot_Button, mEquals_Button ;
     // This creates the EditText for the calculator screen
-    private EditText mCalculatorScreen;
+    private EditText editTextCalculatorScreen;
 
-//test by clay
+    // This stores the current input to be displayed or prettified.
+    private String currentInput = "";
 
-// dr calculeto lives
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // The following code initializes the buttons and finds them by their xml ids
-        mCalculatorScreen = (EditText) findViewById(R.id.editTextCalculatorScreen);
+        editTextCalculatorScreen = findViewById(R.id.editTextCalculatorScreen);
 
-        mZero_Button = (Button) findViewById(R.id.buttonZero);
-        mOne_Button = (Button) findViewById(R.id.buttonOne);
-        mTwo_Button = (Button) findViewById(R.id.buttonTwo);
-        mThree_Button = (Button) findViewById(R.id.buttonThree);
-        mFour_Button = (Button) findViewById(R.id.buttonFour);
-        mFive_Button = (Button) findViewById(R.id.buttonFive);
-        mSix_Button = (Button) findViewById(R.id.buttonSix);
-        mSeven_Button = (Button) findViewById(R.id.buttonSeven);
-        mEight_Button = (Button) findViewById(R.id.buttonEight);
-        mNine_Button = (Button) findViewById(R.id.buttonNine);
-        mAdd_Button = (Button) findViewById(R.id.buttonAdd);
-        mSub_Button = (Button) findViewById(R.id.buttonSubtract);
-        mMult_Button = (Button) findViewById(R.id.buttonMultiply);
-        mDiv_Button = (Button) findViewById(R.id.buttonDivide);
-        mModulo_Button = (Button) findViewById(R.id.buttonModulo);
-        mDel_Button = (Button) findViewById(R.id.buttonDelete);
-        mClear_Button = (Button) findViewById(R.id.buttonClear);
-        mDot_Button = (Button) findViewById(R.id.buttonDecimalPoint);
-        mEquals_Button = (Button) findViewById(R.id.buttonEquals);
+        findViewById(R.id.buttonZero).setOnClickListener(this);
+        findViewById(R.id.buttonOne).setOnClickListener(this);
+        findViewById(R.id.buttonTwo).setOnClickListener(this);
+        findViewById(R.id.buttonThree).setOnClickListener(this);
+        findViewById(R.id.buttonFour).setOnClickListener(this);
+        findViewById(R.id.buttonFive).setOnClickListener(this);
+        findViewById(R.id.buttonSix).setOnClickListener(this);
+        findViewById(R.id.buttonSeven).setOnClickListener(this);
+        findViewById(R.id.buttonEight).setOnClickListener(this);
+        findViewById(R.id.buttonNine).setOnClickListener(this);
+        findViewById(R.id.buttonAdd).setOnClickListener(this);
+        findViewById(R.id.buttonSubtract).setOnClickListener(this);
+        findViewById(R.id.buttonMultiply).setOnClickListener(this);
+        findViewById(R.id.buttonDivide).setOnClickListener(this);
+        findViewById(R.id.buttonModulo).setOnClickListener(this);
+        findViewById(R.id.buttonDecimalPoint).setOnClickListener(this);
+        findViewById(R.id.buttonDelete).setOnClickListener(this);
+        findViewById(R.id.buttonClear).setOnClickListener(this);
+        findViewById(R.id.buttonEquals).setOnClickListener(this);
 
-        mCalculatorScreen.setInputType(InputType.TYPE_NULL);
-        mCalculatorScreen.setTextIsSelectable(true);
+        editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
+        editTextCalculatorScreen.setTextIsSelectable(true);
+    }
 
-        mZero_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mZero_Button.getText().toString());
-            }
-        });
+    public String prettifyInput(String input) {
+        return input;
+    }
 
-        mOne_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mOne_Button.getText().toString());
-            }
-        });
-
-        mTwo_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mTwo_Button.getText().toString());
-            }
-        });
-
-        mThree_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mThree_Button.getText().toString());
-            }
-        });
-
-        mFour_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mFour_Button.getText().toString());
-            }
-        });
-
-        mFive_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mFive_Button.getText().toString());
-            }
-        });
-
-        mSix_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mSix_Button.getText().toString());
-            }
-        });
-
-        mSeven_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mSeven_Button.getText().toString());
-            }
-        });
-
-        mEight_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mEight_Button.getText().toString());
-            }
-        });
-
-        mNine_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mNine_Button.getText().toString());
-            }
-        });
-
-        mSub_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mSub_Button.getText().toString());
-            }
-        });
-
-        mMult_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mMult_Button.getText().toString());
-            }
-        });
-
-        mDiv_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mDiv_Button.getText().toString());
-            }
-        });
-
-        mDel_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int length = mCalculatorScreen.getText().length();
-                if (length > 0)
-                    mCalculatorScreen.setTextKeepState(mCalculatorScreen.getText().delete(length-1,length));
-            }
-        });
-
-        mClear_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.setText("");
-            }
-        });
-
-        mModulo_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mModulo_Button.getText().toString());
-            }
-        });
-
-        mAdd_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mAdd_Button.getText().toString());
-            }
-        });
-
-        mDot_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCalculatorScreen.append(mDot_Button.getText().toString());
-            }
-        });
-
-        mEquals_Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mCalculatorScreen.getText().toString().length() > 0) {
-                    String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
-                    double answer = RegexParser.parsePrefix(prefix);
-                    String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
-                    if(answer % 1 == 0 && answerString.contains("E") == false) {
-                        mCalculatorScreen.setTextKeepState(answerString.substring(0,answerString.length() - 2));
-                    }
-                    else {
-                        mCalculatorScreen.setTextKeepState(answerString);
-                    }
-                }
-            }
-        });
+    public String parseEquation(String input) {
+        String prefix = RegexParser.inputToPrefix(input);
+        double answer = RegexParser.parsePrefix(prefix);
+        String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
+        if(answer % 1 == 0 && !answerString.contains("E")) {
+            return answerString.substring(0,answerString.length() - 2);
+        }
+        else {
+            return answerString;
+        }
     }
 
     @Override
     public void onClick(View view) {
+        // Run when a button is pressed.
         switch(view.getId()) {
-
+            case R.id.buttonZero:
+                currentInput += "0"; break;
+            case R.id.buttonOne:
+                currentInput += "1"; break;
+            case R.id.buttonTwo:
+                currentInput += "2"; break;
+            case R.id.buttonThree:
+                currentInput += "3"; break;
+            case R.id.buttonFour:
+                currentInput += "4"; break;
+            case R.id.buttonFive:
+                currentInput += "5"; break;
+            case R.id.buttonSix:
+                currentInput += "6"; break;
+            case R.id.buttonSeven:
+                currentInput += "7"; break;
+            case R.id.buttonEight:
+                currentInput += "8"; break;
+            case R.id.buttonNine:
+                currentInput += "9"; break;
+            case R.id.buttonAdd:
+                currentInput += "+"; break;
+            case R.id.buttonSubtract:
+                currentInput += "-"; break;
+            case R.id.buttonMultiply:
+                currentInput += "*"; break;
+            case R.id.buttonDivide:
+                currentInput += "/"; break;
+            case R.id.buttonModulo:
+                currentInput += "%"; break;
+            case R.id.buttonDecimalPoint:
+                currentInput += "."; break;
+            case R.id.buttonDelete:
+                int length = currentInput.length();
+                if (length > 0)
+                    currentInput = currentInput.substring(0, length - 1);
+                break;
+            case R.id.buttonClear:
+                currentInput = "";
+                break;
+            case R.id.buttonEquals:
+                currentInput = parseEquation(currentInput);
+                break;
         }
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(currentInput));
     }
 
 }
