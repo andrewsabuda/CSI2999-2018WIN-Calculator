@@ -1,41 +1,38 @@
 package com.evan.pocketcalcplus;
 
-import java.lang.Math;
-
-import java.util.Arrays;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegexParser {
-
-    public static double performOperation(String operator, double operand1, double operand2) {
+    private static BigDecimal performOperation(String operator, BigDecimal operand1, BigDecimal operand2)
+        throws ArithmeticException {
         switch(operator) {
             case "+":
-                return operand1 + operand2;
+                return operand1.add(operand2);
             case "-":
-                return operand1 - operand2;
+                return operand1.subtract(operand2);
             case "*":
-                return operand1 * operand2;
+                return operand1.multiply(operand2);
             case "/":
-                if(operand2 == 0){
-                    System.out.println("Error");
-                }
-                else {
-                    return operand1 / operand2;
-                }
+                // ArithmaticException here means invalid divisor (zero).
+                return operand1.divide(operand2);
             case "%":
-                return operand1 % operand2;
+                return operand1.remainder(operand2);
             case "^":
-                return Math.pow(operand1, operand2);
+                // ArithmaticException here means invalid exponent (fractional/massive).
+                return operand1.pow(operand2.intValueExact());
             default:
-            System.out.println("Bad operator:"+operator);
-            return 0;
+                System.out.println("Bad operator:"+operator);
+                return new BigDecimal("0");
         }
     }
 
-    private static double parsePrefixRecursive(ArrayList<String> input) {
+    private static BigDecimal parsePrefixRecursive(ArrayList<String> input)
+        throws ArithmeticException {
         // Pop the first element of the array list.
         String current = input.remove(0);
 
@@ -47,26 +44,26 @@ public class RegexParser {
 
         if(matchNumber.matches()) {
             // If it's a number, parse it.
-            return Double.parseDouble(current);
+            return new BigDecimal(current);
         } else if (matchOperator.matches()) {
             // If it's a operator, parse the next two numbers and perform the operation.
-            double operand1 = parsePrefixRecursive(input);
-            double operand2 = parsePrefixRecursive(input);
+            BigDecimal operand1 = parsePrefixRecursive(input);
+            BigDecimal operand2 = parsePrefixRecursive(input);
             return performOperation(current, operand1, operand2);
         } else {
             System.out.println("No Operation:"+current);
-            return 0;
+            return new BigDecimal("0");
         }
     }
 
-    public static double parsePrefix(String input) {
+    private static BigDecimal parsePrefix(String input) {
         ArrayList<String> split = new ArrayList<String>(
-            Arrays.asList(input.split(" ")));
+                Arrays.asList(input.split(" ")));
         split.removeAll(Arrays.asList("", null));
         return parsePrefixRecursive(split);
     }
 
-    public static String inputToPrefix(String input){
+    private static String inputToPrefix(String input){
         Pattern pattern = Pattern.compile("(?:([.0-9]+) ?([-+*/%^])?)");
         Matcher match = pattern.matcher(input);
 
@@ -82,27 +79,20 @@ public class RegexParser {
             }
         }
 
-        return stringJoiner(' ', output.toArray(new String[output.size()]));
-        //return String.join(" ", output.toArray(new String[output.size()]));
+        return joinString(' ', output.toArray(new String[output.size()]));
     }
 
-    public static String stringJoiner(char delimiter, String[] output) {
+    private static String joinString(char delimiter, String[] output) {
         String joinedString = new String();
         for(String s: output) {
             joinedString = joinedString + s + delimiter;
         }
-
         return joinedString.substring(0, joinedString.length() - 1);
     }
 
-    public static void main(String[] args) {
-        // + - * / ^ %
-        // No order of operations or parenthesis yet
-        // Once parenthesis is done, order of operations can be done by inserting parens
-        final String INPUT = "5*5+2/8-3^2%2";
-
-        String prefixInput = inputToPrefix(INPUT);
-        System.out.println(INPUT + ": " + prefixInput);
-        System.out.println(INPUT + " = " + parsePrefix(prefixInput));
+    public static String parseEquation(String equation) {
+        String prefixEquation = inputToPrefix(equation);
+        BigDecimal parsedBigDecimal = parsePrefix(prefixEquation);
+        return parsedBigDecimal.toPlainString();
     }
 }

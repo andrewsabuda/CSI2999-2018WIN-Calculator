@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+import java.util.Stack;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
@@ -50,19 +53,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public String prettifyInput(String input) {
-        return input;
+        return EquationPrettifier.prettifyInput(input);
     }
 
     public String parseEquation(String input) {
-        String prefix = RegexParser.inputToPrefix(input);
-        double answer = RegexParser.parsePrefix(prefix);
-        String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
-        if(answer % 1 == 0 && !answerString.contains("E")) {
-            return answerString.substring(0,answerString.length() - 2);
-        }
-        else {
-            return answerString;
-        }
+        return RegexParser.parseEquation(input);
     }
 
     @Override
