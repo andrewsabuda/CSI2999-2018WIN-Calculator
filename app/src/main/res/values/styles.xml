@@ -25,4 +25,8 @@
         <item name="backgroundTint" tools:ignore="NewApi">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTheme.Button.PrimaryAlternate" parent="AppTheme.Button">
+        <item name="backgroundTint" tools:ignore="NewApi">@color/colorPrimaryAlternate</item>
+    </style>
+
 </resources>
