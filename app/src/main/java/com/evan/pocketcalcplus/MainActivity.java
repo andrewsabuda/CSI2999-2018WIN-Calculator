@@ -2,6 +2,7 @@ package com.evan.pocketcalcplus;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         mDot_Button = (Button) findViewById(R.id.Dot_Button);
         mEquals_Button = (Button) findViewById(R.id.Equals_Button);
         mCalculatorScreen = (EditText) findViewById(R.id.Calculator_Screen);
+
+        mCalculatorScreen.setInputType(InputType.TYPE_NULL);
+        mCalculatorScreen.setTextIsSelectable(true);
 
 
         mZero_Button.setOnClickListener(new View.OnClickListener() {
@@ -183,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                     String prefix = RegexParser.inputToPrefix(mCalculatorScreen.getText().toString());
                     double answer = RegexParser.parsePrefix(prefix);
                     String answerString = String.valueOf(RegexParser.parsePrefix(prefix));
-                    if(answer % 1 == 0) {
+                    if(answer % 1 == 0 && answerString.contains("E") == false) {
                         mCalculatorScreen.setTextKeepState(answerString.substring(0,answerString.length() - 2));
                     }
                     else {
