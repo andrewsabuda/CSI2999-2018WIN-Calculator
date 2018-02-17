@@ -27,30 +27,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // The following code initializes the buttons and finds them by their xml ids
-        mZero_Button = (Button) findViewById(R.id.Zero_Button);
-        mOne_Button = (Button) findViewById(R.id.One_Button);
-        mTwo_Button = (Button) findViewById(R.id.Two_Button);
-        mThree_Button = (Button) findViewById(R.id.Three_Button);
-        mFour_Button = (Button) findViewById(R.id.Four_Button);
-        mFive_Button = (Button) findViewById(R.id.Five_Button);
-        mSix_Button = (Button) findViewById(R.id.Six_Button);
-        mSeven_Button = (Button) findViewById(R.id.Seven_Button);
-        mEight_Button = (Button) findViewById(R.id.Eight_Button);
-        mNine_Button = (Button) findViewById(R.id.Nine_Button);
-        mSub_Button = (Button) findViewById(R.id.Sub_Button);
-        mMult_Button = (Button) findViewById(R.id.Mult_Button);
-        mDiv_Button = (Button) findViewById(R.id.Div_Button);
-        mDel_Button = (Button) findViewById(R.id.Del_Button);
-        mClear_Button = (Button) findViewById(R.id.Clear_Button);
-        mModulo_Button = (Button) findViewById(R.id.Modulo_Button);
-        mAdd_Button = (Button) findViewById(R.id.Add_Button);
-        mDot_Button = (Button) findViewById(R.id.Dot_Button);
+        mCalculatorScreen = (EditText) findViewById(R.id.editTextCalculatorScreen);
+
+        mZero_Button = (Button) findViewById(R.id.buttonZero);
+        mOne_Button = (Button) findViewById(R.id.buttonOne);
+        mTwo_Button = (Button) findViewById(R.id.buttonTwo);
+        mThree_Button = (Button) findViewById(R.id.buttonThree);
+        mFour_Button = (Button) findViewById(R.id.buttonFour);
+        mFive_Button = (Button) findViewById(R.id.buttonFive);
+        mSix_Button = (Button) findViewById(R.id.buttonSix);
+        mSeven_Button = (Button) findViewById(R.id.buttonSeven);
+        mEight_Button = (Button) findViewById(R.id.buttonEight);
+        mNine_Button = (Button) findViewById(R.id.buttonNine);
+        mAdd_Button = (Button) findViewById(R.id.buttonAdd);
+        mSub_Button = (Button) findViewById(R.id.buttonSubtract);
+        mMult_Button = (Button) findViewById(R.id.buttonMultiply);
+        mDiv_Button = (Button) findViewById(R.id.buttonDivide);
+        mModulo_Button = (Button) findViewById(R.id.buttonModulo);
+        mDel_Button = (Button) findViewById(R.id.buttonDelete);
+        mClear_Button = (Button) findViewById(R.id.buttonClear);
+        mDot_Button = (Button) findViewById(R.id.buttonDecimalPoint);
         mEquals_Button = (Button) findViewById(R.id.Equals_Button);
-        mCalculatorScreen = (EditText) findViewById(R.id.Calculator_Screen);
 
         mCalculatorScreen.setInputType(InputType.TYPE_NULL);
         mCalculatorScreen.setTextIsSelectable(true);
-
 
         mZero_Button.setOnClickListener(new View.OnClickListener() {
             @Override
