@@ -211,16 +211,16 @@
         android:layout_toRightOf="@id/buttonZero" />
 
     <Button
-        android:id="@+id/buttonParenthesis"
-        android:theme="@style/AppTheme.Button.Primary"
+        android:id="@+id/buttonHistory"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-
-        android:text="@string/buttonParenthesis"
-
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/buttonDecimalPoint"
-        android:layout_toRightOf="@id/buttonDecimalPoint" />
+
+        android:layout_toEndOf="@+id/buttonTwo"
+
+        android:layout_toRightOf="@+id/buttonTwo"
+        android:text="HIST"
+        android:theme="@style/AppTheme.Button.Primary" />
 
     <Button
         android:id="@+id/buttonDelete"
@@ -255,6 +255,6 @@
         android:text="@string/buttonEquals"
 
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@id/buttonParenthesis"
-        android:layout_toRightOf="@id/buttonParenthesis" />
+        android:layout_toEndOf="@id/buttonHistory"
+        android:layout_toRightOf="@id/buttonHistory" />
 </RelativeLayout>

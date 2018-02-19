@@ -3,15 +3,10 @@ package com.evan.pocketcalcplus;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Locale;
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // This creates the EditText for the calculator screen
@@ -19,6 +14,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // This stores the current input to be displayed or prettified.
     private String currentInput = "";
+
+    // History interface
+    SetInterface history = new ArraySet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonDelete).setOnClickListener(this);
         findViewById(R.id.buttonClear).setOnClickListener(this);
         findViewById(R.id.buttonEquals).setOnClickListener(this);
+        findViewById(R.id.buttonHistory).setOnClickListener(this);
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
@@ -59,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public String parseEquation(String input) {
         return RegexParser.parseEquation(input);
     }
+
 
     @Override
     public void onClick(View view) {
@@ -106,7 +106,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonEquals:
                 currentInput = parseEquation(currentInput);
+        //When equals button is clicked, adds currentInput to the history
+                history.add(String.valueOf(currentInput));
                 break;
+            case R.id.buttonHistory:
+                Object[] array = history.toArray();
+            for(int i = 0 ; i < history.getCurrentSize(); i++){
+        //Displays the values stored in the history array
+                currentInput = String.valueOf(array[i]);
+            }
+
         }
         editTextCalculatorScreen.setTextKeepState(prettifyInput(currentInput));
     }
