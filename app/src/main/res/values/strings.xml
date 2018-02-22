@@ -25,4 +25,19 @@
 
     <string name="buttonEquals">=</string>
 
+    <string name="buttonSine">Sin</string>
+    <string name="buttonCosine">Cos</string>
+    <string name="buttonTangent">Tan</string>
+
+    <string name="buttonLn">ln</string>
+    <string name="buttonSquared">x^2</string>
+    <string name="buttonSqrt">Sqrt</string>
+    <string name="buttonExp">^</string>
+    <string name="buttonPi">pi</string>
+    <string name="buttonFactorial">x!</string>
+
+
+
+
+
 </resources>

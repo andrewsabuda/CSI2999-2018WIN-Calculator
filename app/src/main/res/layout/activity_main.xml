@@ -8,15 +8,17 @@
 
     <EditText
         android:id="@+id/editTextCalculatorScreen"
-        android:theme="@style/AppTheme.EditText"
         android:layout_width="350dp"
         android:layout_height="50dp"
-
-        android:inputType="text"
-
         android:layout_above="@id/buttonDelete"
+
+        android:layout_alignEnd="@+id/buttonDelete"
+
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignRight="@+id/buttonDelete"
+        android:inputType="text"
+        android:theme="@style/AppTheme.EditText" />
 
     <Button
         android:id="@+id/buttonZero"
