@@ -1,14 +1,18 @@
 package com.evan.pocketcalcplus;
 
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
 
@@ -18,37 +22,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // History interface
     SetInterface history = new ArraySet();
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_main,container,false);
+        //super.onCreate(savedInstanceState);
 
         // The following code initializes the buttons and finds them by their xml ids
-        editTextCalculatorScreen = findViewById(R.id.editTextCalculatorScreen);
+        editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreen);
 
-        findViewById(R.id.buttonZero).setOnClickListener(this);
-        findViewById(R.id.buttonOne).setOnClickListener(this);
-        findViewById(R.id.buttonTwo).setOnClickListener(this);
-        findViewById(R.id.buttonThree).setOnClickListener(this);
-        findViewById(R.id.buttonFour).setOnClickListener(this);
-        findViewById(R.id.buttonFive).setOnClickListener(this);
-        findViewById(R.id.buttonSix).setOnClickListener(this);
-        findViewById(R.id.buttonSeven).setOnClickListener(this);
-        findViewById(R.id.buttonEight).setOnClickListener(this);
-        findViewById(R.id.buttonNine).setOnClickListener(this);
-        findViewById(R.id.buttonAdd).setOnClickListener(this);
-        findViewById(R.id.buttonSubtract).setOnClickListener(this);
-        findViewById(R.id.buttonMultiply).setOnClickListener(this);
-        findViewById(R.id.buttonDivide).setOnClickListener(this);
-        findViewById(R.id.buttonModulo).setOnClickListener(this);
-        findViewById(R.id.buttonDecimalPoint).setOnClickListener(this);
-        findViewById(R.id.buttonDelete).setOnClickListener(this);
-        findViewById(R.id.buttonClear).setOnClickListener(this);
-        findViewById(R.id.buttonEquals).setOnClickListener(this);
-        findViewById(R.id.buttonHistory).setOnClickListener(this);
+        view.findViewById(R.id.buttonZero).setOnClickListener(this);
+        view.findViewById(R.id.buttonOne).setOnClickListener(this);
+        view.findViewById(R.id.buttonTwo).setOnClickListener(this);
+        view.findViewById(R.id.buttonThree).setOnClickListener(this);
+        view.findViewById(R.id.buttonFour).setOnClickListener(this);
+        view.findViewById(R.id.buttonFive).setOnClickListener(this);
+        view.findViewById(R.id.buttonSix).setOnClickListener(this);
+        view.findViewById(R.id.buttonSeven).setOnClickListener(this);
+        view.findViewById(R.id.buttonEight).setOnClickListener(this);
+        view.findViewById(R.id.buttonNine).setOnClickListener(this);
+        view.findViewById(R.id.buttonAdd).setOnClickListener(this);
+        view.findViewById(R.id.buttonSubtract).setOnClickListener(this);
+        view.findViewById(R.id.buttonMultiply).setOnClickListener(this);
+        view.findViewById(R.id.buttonDivide).setOnClickListener(this);
+        view.findViewById(R.id.buttonModulo).setOnClickListener(this);
+        view.findViewById(R.id.buttonDecimalPoint).setOnClickListener(this);
+        view.findViewById(R.id.buttonDelete).setOnClickListener(this);
+        view.findViewById(R.id.buttonClear).setOnClickListener(this);
+        view.findViewById(R.id.buttonEquals).setOnClickListener(this);
+        view.findViewById(R.id.buttonHistory).setOnClickListener(this);
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
+
+        return view;
     }
 
     public String prettifyInput(String input) {
