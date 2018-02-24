@@ -1,5 +1,6 @@
 package com.evan.pocketcalcplus;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,11 +11,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+=======
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+>>>>>>> unstable
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
 
@@ -24,18 +35,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // History interface
     SetInterface history = new ArraySet();
 
+<<<<<<< HEAD
     private PopupWindow popupWindow;
     private LayoutInflater layoutInflater;
     private RelativeLayout relativeLayout;
 
+=======
+    @Nullable
+>>>>>>> unstable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_main,container,false);
+        //super.onCreate(savedInstanceState);
 
         // The following code initializes the buttons and finds them by their xml ids
-        editTextCalculatorScreen = findViewById(R.id.editTextCalculatorScreen);
+        editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreen);
 
+<<<<<<< HEAD
         relativeLayout = (RelativeLayout) findViewById(R.id.relative);
 
         findViewById(R.id.buttonZero).setOnClickListener(this);
@@ -58,11 +74,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonClear).setOnClickListener(this);
         findViewById(R.id.buttonEquals).setOnClickListener(this);
         findViewById(R.id.buttonHistory).setOnClickListener(this);
+=======
+        view.findViewById(R.id.buttonZero).setOnClickListener(this);
+        view.findViewById(R.id.buttonOne).setOnClickListener(this);
+        view.findViewById(R.id.buttonTwo).setOnClickListener(this);
+        view.findViewById(R.id.buttonThree).setOnClickListener(this);
+        view.findViewById(R.id.buttonFour).setOnClickListener(this);
+        view.findViewById(R.id.buttonFive).setOnClickListener(this);
+        view.findViewById(R.id.buttonSix).setOnClickListener(this);
+        view.findViewById(R.id.buttonSeven).setOnClickListener(this);
+        view.findViewById(R.id.buttonEight).setOnClickListener(this);
+        view.findViewById(R.id.buttonNine).setOnClickListener(this);
+        view.findViewById(R.id.buttonAdd).setOnClickListener(this);
+        view.findViewById(R.id.buttonSubtract).setOnClickListener(this);
+        view.findViewById(R.id.buttonMultiply).setOnClickListener(this);
+        view.findViewById(R.id.buttonDivide).setOnClickListener(this);
+        view.findViewById(R.id.buttonModulo).setOnClickListener(this);
+        view.findViewById(R.id.buttonDecimalPoint).setOnClickListener(this);
+        view.findViewById(R.id.buttonDelete).setOnClickListener(this);
+        view.findViewById(R.id.buttonClear).setOnClickListener(this);
+        view.findViewById(R.id.buttonEquals).setOnClickListener(this);
+        view.findViewById(R.id.buttonHistory).setOnClickListener(this);
+>>>>>>> unstable
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
 
+<<<<<<< HEAD
 }
+=======
+        return view;
+    }
+>>>>>>> unstable
 
     public String prettifyInput(String input) {
         return EquationPrettifier.prettifyInput(input);
