@@ -1,12 +1,18 @@
 package com.evan.pocketcalcplus;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // This creates the EditText for the calculator screen
@@ -18,6 +24,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // History interface
     SetInterface history = new ArraySet();
 
+    private PopupWindow popupWindow;
+    private LayoutInflater layoutInflater;
+    private RelativeLayout relativeLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // The following code initializes the buttons and finds them by their xml ids
         editTextCalculatorScreen = findViewById(R.id.editTextCalculatorScreen);
+
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative);
 
         findViewById(R.id.buttonZero).setOnClickListener(this);
         findViewById(R.id.buttonOne).setOnClickListener(this);
@@ -49,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
-    }
+
+}
 
     public String prettifyInput(String input) {
         return EquationPrettifier.prettifyInput(input);
@@ -110,13 +123,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 history.add(String.valueOf(currentInput));
                 break;
             case R.id.buttonHistory:
-                Object[] array = history.toArray();
-            for(int i = 0 ; i < history.getCurrentSize(); i++){
-        //Displays the values stored in the history array
-                currentInput = String.valueOf(array[i]);
-            }
+                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.history_popup,null);
 
+                popupWindow = new PopupWindow(container,800,1000,true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY,50,1500);
+
+                container.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
+
+                    break;
         }
+
         editTextCalculatorScreen.setTextKeepState(prettifyInput(currentInput));
     }
 
