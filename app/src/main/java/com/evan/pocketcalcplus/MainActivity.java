@@ -1,7 +1,8 @@
 package com.evan.pocketcalcplus;
 
-<<<<<<< HEAD
 import android.content.Context;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -11,19 +12,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-=======
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.text.InputType;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
->>>>>>> unstable
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class MainActivity extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
@@ -35,14 +27,10 @@ public class MainActivity extends Fragment implements View.OnClickListener {
     // History interface
     SetInterface history = new ArraySet();
 
-<<<<<<< HEAD
     private PopupWindow popupWindow;
     private LayoutInflater layoutInflater;
     private RelativeLayout relativeLayout;
 
-=======
-    @Nullable
->>>>>>> unstable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_main,container,false);
@@ -51,30 +39,9 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         // The following code initializes the buttons and finds them by their xml ids
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreen);
 
-<<<<<<< HEAD
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative);
+        relativeLayout = (RelativeLayout) view.findViewById(R.id.relative);
 
-        findViewById(R.id.buttonZero).setOnClickListener(this);
-        findViewById(R.id.buttonOne).setOnClickListener(this);
-        findViewById(R.id.buttonTwo).setOnClickListener(this);
-        findViewById(R.id.buttonThree).setOnClickListener(this);
-        findViewById(R.id.buttonFour).setOnClickListener(this);
-        findViewById(R.id.buttonFive).setOnClickListener(this);
-        findViewById(R.id.buttonSix).setOnClickListener(this);
-        findViewById(R.id.buttonSeven).setOnClickListener(this);
-        findViewById(R.id.buttonEight).setOnClickListener(this);
-        findViewById(R.id.buttonNine).setOnClickListener(this);
-        findViewById(R.id.buttonAdd).setOnClickListener(this);
-        findViewById(R.id.buttonSubtract).setOnClickListener(this);
-        findViewById(R.id.buttonMultiply).setOnClickListener(this);
-        findViewById(R.id.buttonDivide).setOnClickListener(this);
-        findViewById(R.id.buttonModulo).setOnClickListener(this);
-        findViewById(R.id.buttonDecimalPoint).setOnClickListener(this);
-        findViewById(R.id.buttonDelete).setOnClickListener(this);
-        findViewById(R.id.buttonClear).setOnClickListener(this);
-        findViewById(R.id.buttonEquals).setOnClickListener(this);
-        findViewById(R.id.buttonHistory).setOnClickListener(this);
-=======
+
         view.findViewById(R.id.buttonZero).setOnClickListener(this);
         view.findViewById(R.id.buttonOne).setOnClickListener(this);
         view.findViewById(R.id.buttonTwo).setOnClickListener(this);
@@ -95,17 +62,13 @@ public class MainActivity extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.buttonClear).setOnClickListener(this);
         view.findViewById(R.id.buttonEquals).setOnClickListener(this);
         view.findViewById(R.id.buttonHistory).setOnClickListener(this);
->>>>>>> unstable
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
 
-<<<<<<< HEAD
-}
-=======
         return view;
-    }
->>>>>>> unstable
+
+}
 
     public String prettifyInput(String input) {
         return EquationPrettifier.prettifyInput(input);
@@ -166,7 +129,7 @@ public class MainActivity extends Fragment implements View.OnClickListener {
                 history.add(String.valueOf(currentInput));
                 break;
             case R.id.buttonHistory:
-                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                layoutInflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.history_popup,null);
 
                 popupWindow = new PopupWindow(container,800,1000,true);
