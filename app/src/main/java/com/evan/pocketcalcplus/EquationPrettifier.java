@@ -1,7 +1,9 @@
 package com.evan.pocketcalcplus;
 
 import java.math.BigDecimal;
+import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Queue;
 import java.util.Stack;
 
 public class EquationPrettifier {
@@ -9,17 +11,17 @@ public class EquationPrettifier {
         return String.format(Locale.getDefault(), "%6.4G", new BigDecimal(input));
     }
 
-    private static String concatenateStack(Stack<Character> input) {
+    private static String concatenateBuffer(LinkedList<Character> input) {
         String output = "";
-        while (!input.empty()) {
-            output = output + input.pop();
+        while (!(input.size() == 0)) {
+            output = output + input.remove();
         }
         return output;
     }
 
     public static String prettifyInput(String input) {
         StringBuilder output = new StringBuilder();
-        Stack<Character> buffer = new Stack<>();
+        LinkedList<Character> buffer = new LinkedList<>();
 
         for (char current : input.toCharArray()) {
             switch (current) {
@@ -35,7 +37,7 @@ public class EquationPrettifier {
                 case '9':
                 case '.':
                     // Part of a number, add onto stack.
-                    buffer.push(current);
+                    buffer.add(current);
                     break;
                 case '+':
                 case '-':
@@ -44,7 +46,7 @@ public class EquationPrettifier {
                 case '%':
                     // Operators, previous number is done.
                     if (!buffer.isEmpty()) {
-                        output.append(convertStringToScientific(concatenateStack(buffer)));
+                        output.append(convertStringToScientific(concatenateBuffer(buffer)));
                     }
                     output.append(' ');
                     output.append(current);
@@ -55,7 +57,7 @@ public class EquationPrettifier {
             }
         }
         if (!buffer.isEmpty()) {
-            output.append(convertStringToScientific(concatenateStack(buffer)));
+            output.append(convertStringToScientific(concatenateBuffer(buffer)));
         }
 
         return output.toString();
