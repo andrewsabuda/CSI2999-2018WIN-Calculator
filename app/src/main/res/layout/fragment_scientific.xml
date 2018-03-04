@@ -6,304 +6,302 @@
     android:background="@color/colorBackground"
     tools:context=".ScientificFragment">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-        <LinearLayout
-            android:id="@+id/calculatorScreen"
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_above="@id/buttonTangent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@id/buttonCosine"
+            android:inputType="number"
+            android:textAlignment="viewEnd" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:inputType="number" />
+        <Button
+            android:id="@+id/buttonOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonFour"
+            android:text="@string/buttonOne" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/buttonEight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonDivide"
+            android:layout_toEndOf="@+id/buttonSeven"
+            android:layout_toRightOf="@+id/buttonSeven"
+            android:text="@string/buttonEight" />
 
-        <LinearLayout
-            android:id="@+id/seventhRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonSine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonCosine"
+            android:layout_alignBottom="@+id/buttonCosine"
+            android:layout_toEndOf="@+id/buttonExponent"
+            android:layout_toRightOf="@+id/buttonExponent"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonSine" />
 
-            <Button
-                android:id="@+id/buttonSine"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSine" />
+        <Button
+            android:id="@+id/buttonClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonLn"
+            android:layout_marginTop="0dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonClear" />
 
-            <Button
-                android:id="@+id/buttonCosine"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonCosine" />
+        <Button
+            android:id="@+id/buttonSeven"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonClear"
+            android:text="@string/buttonSeven" />
 
-            <Button
-                android:id="@+id/buttonTangent"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonTangent" />
+        <Button
+            android:id="@+id/buttonFive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonEight"
+            android:layout_toEndOf="@+id/buttonFour"
+            android:layout_toRightOf="@+id/buttonFour"
+            android:text="@string/buttonFive" />
 
-            <Button
-                android:id="@+id/buttonFactorial"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonFactorial" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonSubtract"
+            android:layout_toEndOf="@+id/buttonThree"
+            android:layout_toRightOf="@+id/buttonThree"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonAdd" />
 
-        <LinearLayout
-            android:id="@+id/sixthRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonSquared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonFactorial"
+            android:layout_alignBottom="@+id/buttonFactorial"
+            android:layout_toLeftOf="@+id/buttonFactorial"
+            android:layout_toStartOf="@+id/buttonFactorial"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonSquared" />
 
-            <Button
-                android:id="@+id/buttonLn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonLn" />
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonDivide"
+            android:layout_alignBottom="@+id/buttonDivide"
+            android:layout_toEndOf="@+id/buttonDivide"
+            android:layout_toRightOf="@+id/buttonDivide"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonMultiply" />
 
-            <Button
-                android:id="@+id/buttonExponent"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonExp" />
+        <Button
+            android:id="@+id/buttonExponent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonDivide"
+            android:layout_toEndOf="@+id/buttonLn"
+            android:layout_toRightOf="@+id/buttonLn"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonExp" />
 
-            <Button
-                android:id="@+id/buttonSquared"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSquared" />
+        <Button
+            android:id="@+id/buttonZero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonOne"
+            android:text="@string/buttonZero" />
 
-            <Button
-                android:id="@+id/buttonPi"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonPi" />
+        <Button
+            android:id="@+id/buttonFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonSeven"
+            android:text="@string/buttonFour" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/buttonCosine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonFactorial"
+            android:layout_toEndOf="@+id/buttonSquared"
+            android:layout_toRightOf="@+id/buttonSquared"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonCosine" />
 
-        <LinearLayout
-            android:id="@+id/fifthRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonFive"
+            android:layout_toEndOf="@+id/buttonFour"
+            android:layout_toRightOf="@+id/buttonFour"
+            android:text="@string/buttonTwo" />
 
-            <Button
-                android:id="@+id/buttonClear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="0dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonClear" />
+        <Button
+            android:id="@+id/buttonSix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonNine"
+            android:layout_toEndOf="@+id/buttonFive"
+            android:layout_toRightOf="@+id/buttonFive"
+            android:text="@string/buttonSix" />
 
-            <Button
-                android:id="@+id/buttonDivide"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDivide" />
+        <Button
+            android:id="@+id/buttonDecimalPoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonTwo"
+            android:layout_toEndOf="@+id/buttonZero"
+            android:layout_toRightOf="@+id/buttonZero"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonDecimalPoint" />
 
-            <Button
-                android:id="@+id/buttonMultiply"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonMultiply" />
+        <Button
+            android:id="@+id/buttonSubtract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonModulo"
+            android:layout_toEndOf="@+id/buttonSix"
+            android:layout_toRightOf="@+id/buttonSix"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonSubtract" />
 
-            <Button
-                android:id="@+id/buttonDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDelete" />
+        <Button
+            android:id="@+id/buttonNine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/buttonEight"
+            android:layout_toEndOf="@+id/buttonDivide"
+            android:layout_toRightOf="@+id/buttonDivide"
+            android:text="@string/buttonNine" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/buttonDivide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonClear"
+            android:layout_alignBottom="@+id/buttonClear"
+            android:layout_toEndOf="@+id/buttonClear"
+            android:layout_toRightOf="@+id/buttonClear"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonDivide" />
 
-        <LinearLayout
-            android:id="@+id/fourthRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonEquals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonAdd"
+            android:layout_toEndOf="@+id/buttonThree"
+            android:layout_toRightOf="@+id/buttonThree"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonEquals" />
 
-            <Button
-                android:id="@+id/buttonSeven"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonSeven" />
+        <Button
+            android:id="@+id/buttonModulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonNine"
+            android:layout_alignBottom="@+id/buttonNine"
+            android:layout_toEndOf="@+id/buttonMultiply"
+            android:layout_toRightOf="@+id/buttonMultiply"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonModulo" />
 
-            <Button
-                android:id="@+id/buttonEight"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonEight" />
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/buttonMultiply"
+            android:layout_alignBottom="@+id/buttonMultiply"
+            android:layout_toEndOf="@+id/buttonMultiply"
+            android:layout_toRightOf="@+id/buttonMultiply"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonDelete" />
 
-            <Button
-                android:id="@+id/buttonNine"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonNine" />
+        <Button
+            android:id="@+id/buttonFactorial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonMultiply"
+            android:layout_toEndOf="@+id/buttonMultiply"
+            android:layout_toRightOf="@+id/buttonMultiply"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonFactorial" />
 
-            <Button
-                android:id="@+id/buttonModulo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonModulo" />
+        <Button
+            android:id="@+id/buttonParentheses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonThree"
+            android:layout_toEndOf="@+id/buttonDecimalPoint"
+            android:layout_toRightOf="@+id/buttonDecimalPoint"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonParenthesis" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/buttonTangent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/buttonSine"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/buttonLn"
+            android:layout_toRightOf="@+id/buttonLn"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonTangent" />
 
-        <LinearLayout
-            android:id="@+id/thirdRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buttonSix"
+            android:layout_toEndOf="@+id/buttonTwo"
+            android:layout_toRightOf="@+id/buttonTwo"
+            android:text="@string/buttonThree" />
 
-            <Button
-                android:id="@+id/buttonFour"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonFour" />
+        <Button
+            android:id="@+id/buttonPi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonPi" />
 
-            <Button
-                android:id="@+id/buttonFive"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonFive" />
-
-            <Button
-                android:id="@+id/buttonSix"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonSix" />
-
-            <Button
-                android:id="@+id/buttonSubtract"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSubtract" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/secondRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/buttonOne"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonOne" />
-
-            <Button
-                android:id="@+id/buttonTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonTwo" />
-
-            <Button
-                android:id="@+id/buttonThree"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonThree" />
-
-            <Button
-                android:id="@+id/buttonAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonAdd" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/firstRow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/buttonZero"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonZero" />
-
-            <Button
-                android:id="@+id/buttonDecimalPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDecimalPoint" />
-
-            <Button
-                android:id="@+id/buttonParentheses"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonParenthesis" />
-
-            <Button
-                android:id="@+id/buttonEquals"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonEquals" />
-        </LinearLayout>
-
-    </LinearLayout>
+        <Button
+            android:id="@+id/buttonLn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/buttonPi"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="@string/buttonLn" />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -7,221 +7,257 @@
     tools:context=".SimpleFragment"
     android:id="@+id/relative">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <EditText
+        android:id="@+id/editTextCalculatorScreen"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/buttonDelete"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        android:layout_alignEnd="@+id/buttonDelete"
 
-            <EditText
-                android:id="@+id/editTextCalculatorScreen"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:inputType="text"
-                android:theme="@style/AppTheme.EditText" />
-        </LinearLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/buttonDelete"
+        android:inputType="text"
+        android:theme="@style/AppTheme.EditText" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/buttonZero"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonClear"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonClear"
-                android:theme="@style/AppTheme.Button.Primary" />
+        android:text="@string/buttonZero"
 
-            <Button
-                android:id="@+id/buttonDivide"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonDivide"
-                android:theme="@style/AppTheme.Button.Primary" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
-            <Button
-                android:id="@+id/buttonDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonDelete"
-                android:theme="@style/AppTheme.Button.Primary" />
+    <Button
+        android:id="@+id/buttonOne"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonMultiply"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonMultiply"
-                android:theme="@style/AppTheme.Button.Primary" />
-        </LinearLayout>
+        android:text="@string/buttonOne"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        android:layout_above="@id/buttonZero"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-            <Button
-                android:id="@+id/buttonSeven"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonSeven"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+    <Button
+        android:id="@+id/buttonTwo"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonEight"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonEight"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:text="@string/buttonTwo"
 
-            <Button
-                android:id="@+id/buttonNine"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonNine"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:layout_alignTop="@id/buttonOne"
+        android:layout_toEndOf="@id/buttonZero"
+        android:layout_toRightOf="@id/buttonZero" />
 
-            <Button
-                android:id="@+id/buttonModulo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonModulo"
-                android:theme="@style/AppTheme.Button.Primary" />
+    <Button
+        android:id="@+id/buttonThree"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-        </LinearLayout>
+        android:text="@string/buttonThree"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        android:layout_alignTop="@id/buttonTwo"
+        android:layout_toEndOf="@id/buttonDecimalPoint"
+        android:layout_toRightOf="@id/buttonDecimalPoint"/>
 
-            <Button
-                android:id="@+id/buttonFour"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonFour"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+    <Button
+        android:id="@+id/buttonFour"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonFive"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonFive"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:text="@string/buttonFour"
 
-            <Button
-                android:id="@+id/buttonSix"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonSix"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:layout_above="@id/buttonOne"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
-            <Button
-                android:id="@+id/buttonSubtract"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonSubtract"
-                android:theme="@style/AppTheme.Button.Primary" />
+    <Button
+        android:id="@+id/buttonFive"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-        </LinearLayout>
+        android:text="@string/buttonFive"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        android:layout_above="@id/buttonTwo"
+        android:layout_toEndOf="@id/buttonOne"
+        android:layout_toRightOf="@id/buttonOne" />
 
-            <Button
-                android:id="@+id/buttonOne"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonOne"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+    <Button
+        android:id="@+id/buttonSix"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonTwo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonTwo"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:text="@string/buttonSix"
 
-            <Button
-                android:id="@+id/buttonThree"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonThree"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:layout_alignTop="@id/buttonFive"
+        android:layout_toEndOf="@id/buttonTwo"
+        android:layout_toRightOf="@id/buttonTwo" />
 
-            <Button
-                android:id="@+id/buttonAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonAdd"
-                android:theme="@style/AppTheme.Button.Primary" />
-        </LinearLayout>
+    <Button
+        android:id="@+id/buttonSeven"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+        android:text="@string/buttonSeven"
 
-            <Button
-                android:id="@+id/buttonZero"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonZero"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+        android:layout_above="@id/buttonFour"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
 
-            <Button
-                android:id="@+id/buttonDecimalPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonDecimalPoint"
-                android:theme="@style/AppTheme.Button.Primary" />
+    <Button
+        android:id="@+id/buttonEight"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
 
-            <Button
-                android:id="@+id/buttonHistory"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="HIST"
-                android:theme="@style/AppTheme.Button.Primary" />
+        android:text="@string/buttonEight"
 
-            <Button
-                android:id="@+id/buttonEquals"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/buttonEquals"
-                android:theme="@style/AppTheme.Button.Primary" />
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_below="@id/buttonMultiply"
+        android:layout_toEndOf="@id/buttonSeven"
+        android:layout_toRightOf="@+id/buttonSeven" />
 
+    <Button
+        android:id="@+id/buttonNine"
+        android:theme="@style/AppTheme.Button.PrimaryAlternate"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonNine"
+
+        android:layout_above="@id/buttonSix"
+        android:layout_toEndOf="@id/buttonFive"
+        android:layout_toRightOf="@id/buttonFive" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonAdd"
+
+        android:layout_above="@id/buttonEquals"
+        android:layout_toEndOf="@id/buttonThree"
+        android:layout_toRightOf="@id/buttonThree" />
+
+    <Button
+        android:id="@+id/buttonSubtract"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonSubtract"
+
+        android:layout_above="@id/buttonAdd"
+        android:layout_toEndOf="@id/buttonThree"
+        android:layout_toRightOf="@id/buttonThree"/>
+
+    <Button
+        android:id="@+id/buttonMultiply"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonMultiply"
+
+        android:layout_above="@id/buttonNine"
+        android:layout_toEndOf="@id/buttonDivide"
+        android:layout_toRightOf="@id/buttonDivide" />
+
+    <Button
+        android:id="@+id/buttonDivide"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonDivide"
+
+        android:layout_alignTop="@id/buttonMultiply"
+        android:layout_toEndOf="@id/buttonClear"
+        android:layout_toRightOf="@id/buttonClear" />
+
+    <Button
+        android:id="@+id/buttonModulo"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonModulo"
+
+        android:layout_above="@id/buttonSubtract"
+        android:layout_toEndOf="@id/buttonNine"
+        android:layout_toRightOf="@id/buttonNine" />
+
+    <Button
+        android:id="@+id/buttonDecimalPoint"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonDecimalPoint"
+
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/buttonZero"
+        android:layout_toRightOf="@id/buttonZero" />
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+
+        android:layout_toEndOf="@+id/buttonTwo"
+
+        android:layout_toRightOf="@+id/buttonTwo"
+        android:text="HIST"
+        android:theme="@style/AppTheme.Button.Primary" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonDelete"
+
+        android:layout_above="@id/buttonModulo"
+        android:layout_toEndOf="@id/buttonNine"
+        android:layout_toRightOf="@id/buttonNine" />
+
+    <Button
+        android:id="@+id/buttonClear"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:layout_above="@id/buttonSeven"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/buttonClear" />
+
+    <Button
+        android:id="@+id/buttonEquals"
+        android:theme="@style/AppTheme.Button.Primary"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+
+        android:text="@string/buttonEquals"
+
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/buttonHistory"
+        android:layout_toRightOf="@id/buttonHistory" />
 </RelativeLayout>
