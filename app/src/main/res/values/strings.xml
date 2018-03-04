@@ -35,9 +35,7 @@
     <string name="buttonExp">^</string>
     <string name="buttonPi">pi</string>
     <string name="buttonFactorial">x!</string>
-
-
-
+    <string name="texthistory">TextHistory</string>
 
 
 </resources>
