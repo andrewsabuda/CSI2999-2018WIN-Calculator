@@ -3,12 +3,10 @@ package com.evan.pocketcalcplus;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.Locale;
-import java.util.Queue;
-import java.util.Stack;
 
 public class EquationPrettifier {
     private static String convertStringToScientific(String input) {
-        return String.format(Locale.getDefault(), "%6.4G", new BigDecimal(input));
+        return String.format(Locale.getDefault(), "%3.4G", new BigDecimal(input));
     }
 
     private static String concatenateBuffer(LinkedList<Character> input) {

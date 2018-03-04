@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,14 +19,7 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
 
-    // This stores the current input to be displayed or prettified.
-    private String currentInput = "";
-
-    // History interface
-    SetInterface history = new ArraySet();
-
     private PopupWindow popupWindow;
-    private LayoutInflater layoutInflater;
     private RelativeLayout relativeLayout;
 
     @Override
@@ -61,8 +55,22 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
 
         return view;
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        Log.i("SimpleFragment", "setUserVisibleHint");
+        if(isVisibleToUser) {
+            MainActivity main = ((MainActivity) getActivity());
+            if (main != null) {
+                Log.i("SimpleFragment", main.currentInput);
+                editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+            }
+        }
     }
 
     public String prettifyInput(String input) {
@@ -76,55 +84,61 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         // Run when a button is pressed.
+        MainActivity main = (MainActivity) getActivity();
+        if (main == null) return; // This shouldn't happen, it just helps in case of errors.
+
         switch(view.getId()) {
             case R.id.buttonZero:
-                currentInput += "0"; break;
+                main.currentInput += "0"; break;
             case R.id.buttonOne:
-                currentInput += "1"; break;
+                main.currentInput += "1"; break;
             case R.id.buttonTwo:
-                currentInput += "2"; break;
+                main.currentInput += "2"; break;
             case R.id.buttonThree:
-                currentInput += "3"; break;
+                main.currentInput += "3"; break;
             case R.id.buttonFour:
-                currentInput += "4"; break;
+                main.currentInput += "4"; break;
             case R.id.buttonFive:
-                currentInput += "5"; break;
+                main.currentInput += "5"; break;
             case R.id.buttonSix:
-                currentInput += "6"; break;
+                main.currentInput += "6"; break;
             case R.id.buttonSeven:
-                currentInput += "7"; break;
+                main.currentInput += "7"; break;
             case R.id.buttonEight:
-                currentInput += "8"; break;
+                main.currentInput += "8"; break;
             case R.id.buttonNine:
-                currentInput += "9"; break;
+                main.currentInput += "9"; break;
             case R.id.buttonAdd:
-                currentInput += "+"; break;
+                main.currentInput += "+"; break;
             case R.id.buttonSubtract:
-                currentInput += "-"; break;
+                main.currentInput += "-"; break;
             case R.id.buttonMultiply:
-                currentInput += "*"; break;
+                main.currentInput += "*"; break;
             case R.id.buttonDivide:
-                currentInput += "/"; break;
+                main.currentInput += "/"; break;
             case R.id.buttonModulo:
-                currentInput += "%"; break;
+                main.currentInput += "%"; break;
             case R.id.buttonDecimalPoint:
-                currentInput += "."; break;
+                main.currentInput += "."; break;
             case R.id.buttonDelete:
-                int length = currentInput.length();
+                int length = main.currentInput.length();
                 if (length > 0)
-                    currentInput = currentInput.substring(0, length - 1);
+                    main.currentInput = main.currentInput.substring(0, length - 1);
                 break;
             case R.id.buttonClear:
-                currentInput = "";
+                main.currentInput = "";
                 break;
             case R.id.buttonEquals:
-                currentInput = parseEquation(currentInput);
-                //When equals button is clicked, adds currentInput to the history
-                history.add(String.valueOf(currentInput));
+                // Add expression to history.
+                main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, false));
+                // Calculate answer.
+                main.currentInput = parseEquation(main.currentInput);
+                // Add answer to history.
+                main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, true));
                 break;
             case R.id.buttonHistory:
-                layoutInflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.history_popup,null);
+                LayoutInflater layoutInflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.history_popup, null);
 
                 popupWindow = new PopupWindow(container,800,1000,true);
                 popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY,50,1500);
@@ -137,10 +151,10 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
                     }
                 });
 
-                    break;
+                break;
         }
 
-        editTextCalculatorScreen.setTextKeepState(prettifyInput(currentInput));
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(main.currentInput));
     }
 
 }
