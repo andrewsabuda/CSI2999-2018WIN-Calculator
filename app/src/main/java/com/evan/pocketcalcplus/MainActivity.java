@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
     public HistoryListAdapter history;
 
-    // This stores the current input to be displayed or prettified.
-    public String currentInput = "";
+    // History interface
+    public ArrayList<String> history = new ArrayList<>();
+
+    private ViewPager mViewPager;
 
     private ViewPager viewPager;
 

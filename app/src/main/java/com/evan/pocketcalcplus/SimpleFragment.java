@@ -13,12 +13,21 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
+
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class SimpleFragment extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
 
+<<<<<<< Updated upstream
+=======
+    // This stores the current input to be displayed or prettified.
+    private String currentInput = "";
+
+>>>>>>> Stashed changes
     private PopupWindow popupWindow;
     private RelativeLayout relativeLayout;
 
@@ -129,12 +138,19 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
                 main.currentInput = "";
                 break;
             case R.id.buttonEquals:
+<<<<<<< Updated upstream
                 // Add expression to history.
                 main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, false));
                 // Calculate answer.
                 main.currentInput = parseEquation(main.currentInput);
                 // Add answer to history.
                 main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, true));
+=======
+                // Add to history.
+                ((MainActivity) getActivity()).history.add(currentInput);
+                // Parse and solve equation.
+                currentInput = parseEquation(currentInput);
+>>>>>>> Stashed changes
                 break;
             case R.id.buttonHistory:
                 LayoutInflater layoutInflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
