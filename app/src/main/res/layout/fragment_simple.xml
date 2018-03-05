@@ -41,53 +41,37 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonSeven"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
                 android:text="@string/buttonClear"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonNine"
-
-                android:layout_toEndOf="@id/buttonDivide"
-
-                android:layout_toRightOf="@id/buttonDivide"
                 android:layout_weight="1"
                 android:text="@string/buttonMultiply"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@id/buttonMultiply"
-
-                android:layout_toEndOf="@id/buttonClear"
-
-                android:layout_toRightOf="@id/buttonClear"
                 android:layout_weight="1"
                 android:text="@string/buttonDivide"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonModulo"
-
-                android:layout_toEndOf="@id/buttonNine"
-
-                android:layout_toRightOf="@id/buttonNine"
                 android:layout_weight="1"
                 android:text="@string/buttonDelete"
                 android:theme="@style/AppTheme.Button.Primary" />
@@ -100,53 +84,37 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonFour"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
                 android:text="@string/buttonSeven"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonEight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_below="@id/buttonMultiply"
-
-                android:layout_toEndOf="@id/buttonSeven"
-
-                android:layout_toRightOf="@+id/buttonSeven"
                 android:layout_weight="1"
                 android:text="@string/buttonEight"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonNine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonSix"
-
-                android:layout_toEndOf="@id/buttonFive"
-
-                android:layout_toRightOf="@id/buttonFive"
                 android:layout_weight="1"
                 android:text="@string/buttonNine"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonModulo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonSubtract"
-
-                android:layout_toEndOf="@id/buttonNine"
-
-                android:layout_toRightOf="@id/buttonNine"
                 android:layout_weight="1"
                 android:text="@string/buttonModulo"
                 android:theme="@style/AppTheme.Button.Primary" />
@@ -159,53 +127,37 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonFour"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonOne"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
                 android:text="@string/buttonFour"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonFive"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonTwo"
-
-                android:layout_toEndOf="@id/buttonOne"
-
-                android:layout_toRightOf="@id/buttonOne"
                 android:layout_weight="1"
                 android:text="@string/buttonFive"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSix"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@id/buttonFive"
-
-                android:layout_toEndOf="@id/buttonTwo"
-
-                android:layout_toRightOf="@id/buttonTwo"
                 android:layout_weight="1"
                 android:text="@string/buttonSix"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSubtract"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonAdd"
-
-                android:layout_toEndOf="@id/buttonThree"
-
-                android:layout_toRightOf="@id/buttonThree"
                 android:layout_weight="1"
                 android:text="@string/buttonSubtract"
                 android:theme="@style/AppTheme.Button.Primary" />
@@ -218,53 +170,37 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonOne"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonZero"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
                 android:text="@string/buttonOne"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@id/buttonOne"
-
-                android:layout_toEndOf="@id/buttonZero"
-
-                android:layout_toRightOf="@id/buttonZero"
                 android:layout_weight="1"
                 android:text="@string/buttonTwo"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonThree"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignTop="@id/buttonTwo"
-
-                android:layout_toEndOf="@id/buttonDecimalPoint"
-
-                android:layout_toRightOf="@id/buttonDecimalPoint"
                 android:layout_weight="1"
                 android:text="@string/buttonThree"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonEquals"
-
-                android:layout_toEndOf="@id/buttonThree"
-
-                android:layout_toRightOf="@id/buttonThree"
                 android:layout_weight="1"
                 android:text="@string/buttonAdd"
                 android:theme="@style/AppTheme.Button.Primary" />
@@ -278,53 +214,37 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonZero"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-
-                android:layout_alignParentLeft="true"
-
-                android:layout_alignParentStart="true"
                 android:layout_weight="1"
                 android:text="@string/buttonZero"
                 android:theme="@style/AppTheme.Button.PrimaryAlternate" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDecimalPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-
-                android:layout_toEndOf="@id/buttonZero"
-
-                android:layout_toRightOf="@id/buttonZero"
                 android:layout_weight="1"
                 android:text="@string/buttonDecimalPoint"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-
-                android:layout_toEndOf="@+id/buttonTwo"
-
-                android:layout_toRightOf="@+id/buttonTwo"
                 android:layout_weight="1"
                 android:text="HIST"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-
-                android:layout_toEndOf="@id/buttonHistory"
-
-                android:layout_toRightOf="@id/buttonHistory"
                 android:layout_weight="1"
                 android:text="@string/buttonEquals"
                 android:theme="@style/AppTheme.Button.Primary" />

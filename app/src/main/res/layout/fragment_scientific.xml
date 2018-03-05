@@ -34,6 +34,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -42,6 +43,7 @@
                 android:text="@string/buttonSine" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonCosine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -50,6 +52,7 @@
                 android:text="@string/buttonCosine" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonTangent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -58,6 +61,7 @@
                 android:text="@string/buttonTangent" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonPi"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -74,6 +78,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonLn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -82,6 +87,7 @@
                 android:text="@string/buttonLn" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonExponent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -90,6 +96,7 @@
                 android:text="@string/buttonExp" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSquared"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -98,6 +105,7 @@
                 android:text="@string/buttonSquared" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonFactorial"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -115,6 +123,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -123,6 +132,7 @@
                 android:text="@string/buttonClear" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -131,6 +141,7 @@
                 android:text="@string/buttonMultiply" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -139,6 +150,7 @@
                 android:text="@string/buttonDivide" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -155,6 +167,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -162,6 +175,7 @@
                 android:text="@string/buttonSeven" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonEight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -169,6 +183,7 @@
                 android:text="@string/buttonEight" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonNine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -176,6 +191,7 @@
                 android:text="@string/buttonNine" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonModulo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -192,6 +208,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonFour"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -199,6 +216,7 @@
                 android:text="@string/buttonFour" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonFive"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -206,6 +224,7 @@
                 android:text="@string/buttonFive" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSix"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -213,6 +232,7 @@
                 android:text="@string/buttonSix" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonSubtract"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -229,6 +249,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonOne"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -236,6 +257,7 @@
                 android:text="@string/buttonOne" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -244,6 +266,7 @@
                 android:text="@string/buttonTwo" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonThree"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -251,6 +274,7 @@
                 android:text="@string/buttonThree" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -267,6 +291,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonZero"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -274,6 +299,7 @@
                 android:text="@string/buttonZero" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonDecimalPoint"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -282,6 +308,7 @@
                 android:text="@string/buttonDecimalPoint" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -290,6 +317,7 @@
                 android:text="@string/buttonEquals" />
 
             <Button
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonParentheses"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
