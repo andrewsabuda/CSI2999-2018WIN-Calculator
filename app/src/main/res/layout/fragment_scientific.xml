@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeSci"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
@@ -19,6 +20,7 @@
             android:orientation="horizontal">
 
             <EditText
+                android:id="@+id/editTextCalculatorScreenSci"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -34,40 +36,40 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonSine"
+                android:id="@+id/buttonSineSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSine" />
+                android:text="@string/buttonSine"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonCosine"
+                android:id="@+id/buttonCosineSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonCosine" />
+                android:text="@string/buttonCosine"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonTangent"
+                android:id="@+id/buttonTangentSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonTangent" />
+                android:text="@string/buttonTangent"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonPi"
+                android:id="@+id/buttonPiSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonPi" />
+                android:text="@string/buttonPi"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,40 +80,40 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonLn"
+                android:id="@+id/buttonLnSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonLn" />
+                android:text="@string/buttonLn"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonExponent"
+                android:id="@+id/buttonExponentSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonExp" />
+                android:text="@string/buttonExp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonSquared"
+                android:id="@+id/buttonSquaredSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSquared" />
+                android:text="@string/buttonSquared"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonFactorial"
+                android:id="@+id/buttonFactorialSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonFactorial" />
+                android:text="@string/buttonFactorial"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
         </LinearLayout>
 
@@ -123,40 +125,40 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonClear"
+                android:id="@+id/buttonClearSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonClear" />
+                android:text="@string/buttonClear"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonMultiply"
+                android:id="@+id/buttonMultiplySci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonMultiply" />
+                android:text="@string/buttonMultiply"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonDivide"
+                android:id="@+id/buttonDivideSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDivide" />
+                android:text="@string/buttonDivide"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonDelete"
+                android:id="@+id/buttonDeleteSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDelete" />
+                android:text="@string/buttonDelete"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -167,37 +169,37 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonSeven"
+                android:id="@+id/buttonSevenSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonSeven" />
+                android:text="@string/buttonSeven"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonEight"
+                android:id="@+id/buttonEightSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonEight" />
+                android:text="@string/buttonEight"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonNine"
+                android:id="@+id/buttonNineSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonNine" />
+                android:text="@string/buttonNine"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonModulo"
+                android:id="@+id/buttonModuloSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonModulo" />
+                android:text="@string/buttonModulo"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -208,37 +210,37 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonFour"
+                android:id="@+id/buttonFourSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonFour" />
+                android:text="@string/buttonFour"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonFive"
+                android:id="@+id/buttonFiveSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonFive" />
+                android:text="@string/buttonFive"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonSix"
+                android:id="@+id/buttonSixSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonSix" />
+                android:text="@string/buttonSix"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonSubtract"
+                android:id="@+id/buttonSubtractSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonSubtract" />
+                android:text="@string/buttonSubtract"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -249,38 +251,38 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonOne"
+                android:id="@+id/buttonOneSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonOne" />
+                android:text="@string/buttonOne"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonTwo"
+                android:id="@+id/buttonTwoSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/buttonFour"
                 android:layout_weight="1"
-                android:text="@string/buttonTwo" />
+                android:text="@string/buttonTwo"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonThree"
+                android:id="@+id/buttonThreeSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonThree" />
+                android:text="@string/buttonThree"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonAdd"
+                android:id="@+id/buttonAddSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonAdd" />
+                android:text="@string/buttonAdd"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -291,39 +293,39 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonZero"
+                android:id="@+id/buttonZeroSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/buttonZero" />
+                android:text="@string/buttonZero"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonDecimalPoint"
+                android:id="@+id/buttonDecimalPointSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonDecimalPoint" />
+                android:text="@string/buttonDecimalPoint"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonEquals"
+                android:id="@+id/buttonEqualsSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonEquals" />
+                android:text="@string/buttonEquals"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonParentheses"
+                android:id="@+id/buttonParenthesesSci"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonParenthesis" />
+                android:text="@string/buttonParenthesis"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
     </LinearLayout>
 
