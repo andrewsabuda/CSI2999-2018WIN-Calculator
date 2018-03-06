@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+    //This creates the options menu, which currently contains the settings button
+    //xml file can be found at res->menu->main_menu.xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
