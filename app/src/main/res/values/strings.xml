@@ -37,7 +37,7 @@
     <string name="buttonFactorial">x!</string>
 
     <string name="historyDefault">{BLANK}</string>
-
+    <string name="settings_id">Settings</string>
 
 
 </resources>

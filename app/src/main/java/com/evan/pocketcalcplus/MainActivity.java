@@ -1,15 +1,18 @@
 package com.evan.pocketcalcplus;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -50,6 +53,22 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
+    }
+
+    //This starts an activity when a button is pressed on the options menu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        //handle presses on the option menu
+        switch (item.getItemId()) {
+
+            case R.id.settings_id:
+                Intent settings = new Intent(this, SettingsActivity.class);
+                startActivity(settings);
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupViewPager(ViewPager viewPager) {
