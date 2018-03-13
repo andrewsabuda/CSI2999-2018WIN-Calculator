@@ -51,7 +51,7 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.buttonDelete).setOnClickListener(this);
         view.findViewById(R.id.buttonClear).setOnClickListener(this);
         view.findViewById(R.id.buttonEquals).setOnClickListener(this);
-        view.findViewById(R.id.buttonHistory).setOnClickListener(this);
+        //view.findViewById(R.id.buttonHistory).setOnClickListener(this);
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
@@ -136,22 +136,7 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
                 // Add answer to history.
                 main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, true));
                 break;
-            case R.id.buttonHistory:
-                LayoutInflater layoutInflater = (LayoutInflater) getActivity().getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.history_popup, null);
 
-                popupWindow = new PopupWindow(container,800,1000,true);
-                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY,50,1500);
-
-                container.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        popupWindow.dismiss();
-                        return true;
-                    }
-                });
-
-                break;
         }
 
         editTextCalculatorScreen.setTextKeepState(prettifyInput(main.currentInput));

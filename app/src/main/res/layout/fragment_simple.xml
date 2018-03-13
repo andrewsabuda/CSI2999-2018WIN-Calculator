@@ -232,12 +232,12 @@
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/buttonHistory"
+                android:id="@+id/buttonParenthesis"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="HIST"
+                android:text="( )"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button
