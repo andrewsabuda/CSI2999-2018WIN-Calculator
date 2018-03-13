@@ -9,6 +9,7 @@
 
     <style name="AppTheme.EditText" parent="Base.Widget.AppCompat.EditText">
         <item name="android:gravity">end</item>
+        <item name="android:textSize">@dimen/fontSizeCalcField</item>
         <item name="android:textAlignment" tools:ignore="NewApi">textEnd</item>
     </style>
 
@@ -18,7 +19,7 @@
         <item name="android:paddingLeft">4dp</item>
         <item name="android:paddingRight">4dp</item>
         <item name="android:layout_margin">4dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">@dimen/fontSizeCalcButtons</item>
     </style>
 
     <style name="AppTheme.Button.Primary" parent="AppTheme.Button">
@@ -29,8 +30,15 @@
         <item name="backgroundTint" tools:ignore="NewApi">@color/colorPrimaryAlternate</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:paddingTop">4dp</item>
+    </style>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.Text.Tabs" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/fontSizeTabNames</item>
+        <item name="android:paddingBottom">4dp</item>
+    </style>
 
 </resources>

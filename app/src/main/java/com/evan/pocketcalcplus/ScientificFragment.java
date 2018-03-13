@@ -55,6 +55,7 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         view.findViewById(R.id.buttonPiSci).setOnClickListener(this);
         view.findViewById(R.id.buttonParenthesesSci).setOnClickListener(this);
         view.findViewById(R.id.buttonClearSci).setOnClickListener(this);
+        view.findViewById(R.id.buttonEqualsSci).setOnClickListener(this);
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
@@ -131,28 +132,32 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
             case R.id.buttonClearSci:
                 main.currentInput = "";
                 break;
-            //not finished
-            case R.id.buttonEqualsSci: break;
-
-            // scientific fragment specific buttons below!!
+            case R.id.buttonEqualsSci:
+                // Add expression to history.
+                main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SCIENTIFIC, false));
+                // Calculate answer.
+                main.currentInput = parseEquation(main.currentInput);
+                // Add answer to history.
+                main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SCIENTIFIC, true));
+                // scientific fragment specific buttons below!!
             case R.id.buttonSquaredSci:
-                main.currentInput += ""; break;
+                main.currentInput += "^ 2"; break;
             case R.id.buttonTangentSci:
-                main.currentInput += ""; break;
+                main.currentInput += RegexParser.OPERATOR_TAN; break;
             case R.id.buttonSineSci:
-                main.currentInput += ""; break;
+                main.currentInput += RegexParser.OPERATOR_SIN; break;
             case R.id.buttonCosineSci:
-                main.currentInput += ""; break;
+                main.currentInput += RegexParser.OPERATOR_COS; break;
             case R.id.buttonLnSci:
-                main.currentInput += ""; break;
+                main.currentInput += RegexParser.OPERATOR_LOG; break;
             case R.id.buttonExponentSci:
-                main.currentInput += ""; break;
+                main.currentInput += "^"; break;
             case R.id.buttonFactorialSci:
-                main.currentInput += ""; break;
+                main.currentInput += "!"; break;
             case R.id.buttonPiSci:
-                main.currentInput += ""; break;
+                main.currentInput += RegexParser.OPERATOR_PI; break;
             case R.id.buttonParenthesesSci:
-                main.currentInput += ""; break;
+                main.currentInput += "("; break;
         }
 
         editTextCalculatorScreen.setTextKeepState(prettifyInput(main.currentInput));

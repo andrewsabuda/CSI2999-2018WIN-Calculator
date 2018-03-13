@@ -1,15 +1,33 @@
 package com.evan.pocketcalcplus;
 
+import android.util.Log;
+
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Locale;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import ch.obermuhlner.math.big.BigDecimalMath;
+
 public class RegexParser {
+    // Use Greek symbols as an operator instead of sin/cos/tan instead of letters (those are for variables!).
+    // The choice to use Greek symbols in particular is arbitrary.
+    static final String OPERATOR_SIN = "\u0401";
+    static final String OPERATOR_COS = "\u0402";
+    static final String OPERATOR_TAN = "\u0403";
+    static final String OPERATOR_ARCSIN = "\u0404";
+    static final String OPERATOR_ARCCOS = "\u0405";
+    static final String OPERATOR_ARCTAN = "\u0406";
+    static final String OPERATOR_LOG = "\u0407";
+    static final String OPERATOR_PI = "\u03A0"; // The actual Pi symbol.
+    static final String OPERATOR_EULER = "\u2107"; // The actual Euler symbol.
+
     private static BigDecimal performOperation(String operator, BigDecimal operand1, BigDecimal operand2)
         throws ArithmeticException {
+        // Two-operator expressions.
         switch(operator) {
             case "+":
                 return operand1.add(operand2);
@@ -19,14 +37,38 @@ public class RegexParser {
                 return operand1.multiply(operand2);
             case "/":
                 // ArithmaticException here means invalid divisor (zero).
-                return operand1.divide(operand2);
+                return operand1.divide(operand2, BigDecimal.ROUND_HALF_UP);
             case "%":
                 return operand1.remainder(operand2);
             case "^":
                 // ArithmaticException here means invalid exponent (fractional/massive).
-                return operand1.pow(operand2.intValueExact());
+                return BigDecimalMath.pow(operand1, operand2, new MathContext(20));
             default:
-                System.out.println("Bad operator:"+operator);
+                System.out.println("Bad operator: " + operator);
+                return new BigDecimal("0");
+        }
+    }
+
+    private static BigDecimal performOperation(String operator, BigDecimal operand)
+            throws ArithmeticException {
+        // One-operator expressions.
+        switch(operator) {
+            case OPERATOR_SIN:
+                return BigDecimalMath.sin(operand, new MathContext(20));
+            case OPERATOR_COS:
+                return BigDecimalMath.cos(operand, new MathContext(20));
+            case OPERATOR_TAN:
+                return BigDecimalMath.tan(operand, new MathContext(20));
+            case OPERATOR_ARCSIN:
+                return BigDecimalMath.asin(operand, new MathContext(20));
+            case OPERATOR_ARCCOS:
+                return BigDecimalMath.acos(operand, new MathContext(20));
+            case OPERATOR_ARCTAN:
+                return BigDecimalMath.atan(operand, new MathContext(20));
+            case OPERATOR_LOG:
+                return BigDecimalMath.log(operand, new MathContext(20));
+            default:
+                System.out.println("Bad operator: " + operator);
                 return new BigDecimal("0");
         }
     }
@@ -35,23 +77,29 @@ public class RegexParser {
         throws ArithmeticException {
         // Pop the first element of the array list.
         String current = input.remove(0);
-
-        // Check for if it's a number or operator.
-        Pattern patternOperator = Pattern.compile("[-+*/^%]");
-        Matcher matchOperator = patternOperator.matcher(current);
-        Pattern patternNumber = Pattern.compile("-?([.0-9])+");
-        Matcher matchNumber = patternNumber.matcher(current);
-
-        if(matchNumber.matches()) {
-            // If it's a number, parse it.
+        if (current.matches("[.0-9a-zA-Z]+")) {
+            // Letter/variable name/numeric/decimal separator
             return new BigDecimal(current);
-        } else if (matchOperator.matches()) {
+        } else if (isConstantSymbol(current)) {
+            switch(current) {
+                case OPERATOR_PI:
+                    return BigDecimalMath.pi(new MathContext(20));
+                case OPERATOR_EULER:
+                    return BigDecimalMath.e(new MathContext(20));
+                default:
+                    return new BigDecimal("0");
+            }
+        } else if (isTwoOperandOperator(current)) {
             // If it's a operator, parse the next two numbers and perform the operation.
             BigDecimal operand1 = parsePrefixRecursive(input);
             BigDecimal operand2 = parsePrefixRecursive(input);
             return performOperation(current, operand1, operand2);
+        } else if (isOneOperandOperator(current)) {
+            // If it's a operator, parse the next number and perform the operation.
+            BigDecimal operand = parsePrefixRecursive(input);
+            return performOperation(current, operand);
         } else {
-            System.out.println("No Operation:"+current);
+            Log.i("RegexParser","No Operation:"+current);
             return new BigDecimal("0");
         }
     }
@@ -63,34 +111,114 @@ public class RegexParser {
         return parsePrefixRecursive(split);
     }
 
-    private static String inputToPrefix(String input){
-        Pattern pattern = Pattern.compile("(?:([.0-9]+) ?([-+*/%^])?)");
-        Matcher match = pattern.matcher(input);
+    static int getTwoOperandPrecedence(String input) {
+        switch(input) {
+            case "^":
+                return 3;
+            case "*":
+            case "/":
+                return 2;
+            case "+":
+            case "-":
+                return 1;
+            default:
+                return 0;
+        }
+    }
 
-        ArrayList<String> output = new ArrayList<String>();
+    static boolean isTwoOperandOperator(String input) {
+        String[] operators = {
+                "+", "-", "*", "/", "^", "%"
+        };
+        for (String operator : operators) {
+            if (input.contains(operator)) {
+                return true;
+            }
+        }
+        // Fallthrough.
+        return false;
+    }
+    private static boolean isOneOperandOperator(String input) {
+        String[] operators = {
+                OPERATOR_SIN, OPERATOR_COS, OPERATOR_TAN,
+                OPERATOR_ARCSIN, OPERATOR_ARCCOS, OPERATOR_ARCTAN,
+                OPERATOR_LOG
+        };
+        for (String operator : operators) {
+            if (input.contains(operator)) {
+                return true;
+            }
+        }
+        // Fallthrough.
+        return false;
+    }
+    private static boolean isConstantSymbol (String input) {
+        String[] symbols = {
+                OPERATOR_PI, OPERATOR_EULER
+        };
+        for (String symbol : symbols) {
+            if (input.contains(symbol)) {
+                return true;
+            }
+        }
+        // Fallthrough.
+        return false;
+    }
 
-        while (match.find()) {
-            if (match.group(2) == null) {
-                output.add(match.group(1));
-                break;
-            } else {
-                output.add(0, match.group(2));
-                output.add(match.group(1));
+    static String inputToPrefix(String input){
+        ArrayList<String> output = new ArrayList<>();
+        Stack<Character> stack = new Stack<>();
+
+        for (Character ch : input.toCharArray()) {
+            if (ch.toString().matches("[.0-9a-zA-Z]") || isConstantSymbol(ch.toString())) {
+                // Letter/variable name/numeric/decimal separator
+                output.add(ch.toString());
+            } else if (ch.toString().matches("[({\\[]")) {
+                // Opening Bracket
+                stack.push(ch);
+            } else if (ch.toString().matches("[)}\\]]")) {
+                // Closing Bracket
+                switch(ch.toString()) {
+                    case ")":
+                        while (!stack.peek().toString().equals("(")) {
+                            output.add(0, stack.pop().toString());
+                        }
+                        stack.pop();
+                        break;
+                    case "}":
+                        break;
+                    case "]":
+                        break;
+                    default:
+                        break;
+                }
+            } else if (isTwoOperandOperator(ch.toString())) {
+                // Two-Operand Operators
+                while (!stack.isEmpty() && getTwoOperandPrecedence(ch.toString()) <= getTwoOperandPrecedence(stack.peek().toString())) {
+                    output.add(0, stack.pop().toString());
+                }
+                stack.push(ch);
+            } else if (isOneOperandOperator(ch.toString())) {
+                output.add(0, ch.toString());
             }
         }
 
-        return joinString(' ', output.toArray(new String[output.size()]));
+        while (!stack.isEmpty()) {
+            output.add(0, stack.pop().toString());
+        }
+
+        return joinString(output.toArray(new String[output.size()]));
     }
 
-    private static String joinString(char delimiter, String[] output) {
-        String joinedString = new String();
+    private static String joinString(String[] output) {
+        StringBuilder joinedString = new StringBuilder();
         for(String s: output) {
-            joinedString = joinedString + s + delimiter;
+            joinedString.append(s).append(' ');
         }
         return joinedString.substring(0, joinedString.length() - 1);
     }
 
-    public static String parseEquation(String equation) {
+    static String parseEquation(String equation) {
         String prefixEquation = inputToPrefix(equation);
         BigDecimal parsedBigDecimal = parsePrefix(prefixEquation);
         return parsedBigDecimal.toPlainString();

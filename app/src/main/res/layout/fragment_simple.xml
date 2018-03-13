@@ -20,9 +20,8 @@
 
             <EditText
                 android:id="@+id/editTextCalculatorScreen"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_above="@id/buttonDelete"
 
                 android:layout_alignEnd="@+id/buttonDelete"
 

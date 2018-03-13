@@ -12,13 +12,16 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
+            app:tabTextAppearance="@style/AppTheme.Text.Tabs"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
             android:layout_width="match_parent"
-            android:layout_height="26dp" />
+            android:layout_height="wrap_content" />
 
     </android.support.design.widget.AppBarLayout>
 
