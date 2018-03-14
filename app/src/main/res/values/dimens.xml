@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fontSizeCalcField">48sp</dimen>
-    <dimen name="fontSizeTabNames">32sp</dimen>
+    <dimen name="fontSizeTabNames">21sp</dimen>
     <dimen name="fontSizeCalcButtons">48sp</dimen>
     <dimen name="fontSizeSciCalcButtons">35sp</dimen>
     <dimen name="fontSizeSciCalcField">35sp</dimen>
