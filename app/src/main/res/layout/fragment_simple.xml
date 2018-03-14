@@ -20,17 +20,11 @@
 
             <EditText
                 android:id="@+id/editTextCalculatorScreen"
-                android:layout_width="0dp"
+                android:layout_weight = "1"
                 android:layout_height="match_parent"
-
-                android:layout_alignEnd="@+id/buttonDelete"
-
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignRight="@+id/buttonDelete"
-                android:layout_weight="1"
                 android:inputType="text"
-                android:theme="@style/AppTheme.EditText" />
+                android:theme="@style/AppTheme.EditText"
+                android:layout_width="0dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -40,12 +34,13 @@
             android:orientation="horizontal">
 
             <Button
-                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/buttonClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonClear"
+                android:textAllCaps="false"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:theme="@style/AppTheme.Button.Primary" />
 
             <Button

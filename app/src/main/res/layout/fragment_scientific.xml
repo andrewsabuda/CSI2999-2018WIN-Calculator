@@ -21,11 +21,14 @@
 
             <EditText
                 android:id="@+id/editTextCalculatorScreenSci"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:textSize="@dimen/fontSizeSciCalcField"
                 android:inputType="number"
-                android:textAlignment="viewEnd" />
+                android:layout_gravity="end"
+                android:textAlignment="textEnd"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -42,7 +45,8 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSine"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons"
+                 />
 
             <Button
                 android:id="@+id/buttonCosineSci"
@@ -51,7 +55,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonCosine"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonTangentSci"
@@ -60,7 +64,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonTangent"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonPiSci"
@@ -69,7 +73,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonPi"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
 
         <LinearLayout
@@ -86,7 +90,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonLn"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonExponentSci"
@@ -95,7 +99,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonExp"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonSquaredSci"
@@ -104,7 +108,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSquared"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonFactorialSci"
@@ -113,7 +117,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonFactorial"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
         </LinearLayout>
 
@@ -131,7 +135,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonClear"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonMultiplySci"
@@ -140,7 +144,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonMultiply"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonDivideSci"
@@ -149,7 +153,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDivide"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonDeleteSci"
@@ -158,7 +162,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDelete"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
 
         <LinearLayout
@@ -174,7 +178,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonSeven"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonEightSci"
@@ -182,7 +186,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonEight"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonNineSci"
@@ -190,7 +194,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonNine"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonModuloSci"
@@ -199,7 +203,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonModulo"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
 
         <LinearLayout
@@ -215,7 +219,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonFour"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonFiveSci"
@@ -223,7 +227,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonFive"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonSixSci"
@@ -231,7 +235,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonSix"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonSubtractSci"
@@ -240,7 +244,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSubtract"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
 
         <LinearLayout
@@ -256,7 +260,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonOne"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonTwoSci"
@@ -265,7 +269,7 @@
                 android:layout_toRightOf="@+id/buttonFour"
                 android:layout_weight="1"
                 android:text="@string/buttonTwo"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonThreeSci"
@@ -273,7 +277,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonThree"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonAddSci"
@@ -282,7 +286,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonAdd"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
 
         <LinearLayout
@@ -298,7 +302,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonZero"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonDecimalPointSci"
@@ -307,16 +311,7 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDecimalPoint"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-
-            <Button
-                android:id="@+id/buttonEqualsSci"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
-                android:text="@string/buttonEquals"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
 
             <Button
                 android:id="@+id/buttonParenthesesSci"
@@ -325,7 +320,16 @@
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonParenthesis"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
+
+            <Button
+                android:id="@+id/buttonEqualsSci"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="@string/buttonEquals"
+                android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
     </LinearLayout>
 
