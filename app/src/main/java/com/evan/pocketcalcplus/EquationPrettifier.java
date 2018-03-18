@@ -37,6 +37,10 @@ public class EquationPrettifier {
                     // Part of a number, add onto stack.
                     buffer.add(current);
                     break;
+                case "(":
+                    // Simply add it to the stack.
+                    buffer.add(current);
+                    break;
                 case "+":
                 case "-":
                 case "*":
@@ -45,11 +49,18 @@ public class EquationPrettifier {
                 case "^":
                     // Operators, previous number is done.
                     if (!buffer.isEmpty()) {
-                        output.append(convertStringToScientific(concatenateBuffer(buffer)));
+                            output.append(convertStringToScientific(concatenateBuffer(buffer)));
                     }
                     output.append(' ');
                     output.append(current);
                     output.append(' ');
+                    break;
+                case ")":
+                    // Closing bracket, previous number is done.
+                    if (!buffer.isEmpty()) {
+                        output.append(convertStringToScientific(concatenateBuffer(buffer)));
+                    }
+                    output.append(current);
                     break;
                 case RegexParser.OPERATOR_SIN:
                     output.append("sin(");
