@@ -1,5 +1,6 @@
 package com.evan.pocketcalcplus;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.math.BigDecimal;
@@ -76,6 +77,8 @@ public class RegexParser {
     private static BigDecimal parsePrefixRecursive(ArrayList<String> input)
         throws ArithmeticException {
         // Pop the first element of the array list.
+        if (input.size() == 0) return new BigDecimal("0");
+
         String current = input.remove(0);
         if (current.matches("[.0-9a-zA-Z]+")) {
             // Letter/variable name/numeric/decimal separator
@@ -104,7 +107,7 @@ public class RegexParser {
         }
     }
 
-    private static BigDecimal parsePrefix(String input) {
+    static BigDecimal parsePrefix(String input) {
         ArrayList<String> split = new ArrayList<String>(
                 Arrays.asList(input.split(" ")));
         split.removeAll(Arrays.asList("", null));
@@ -167,23 +170,27 @@ public class RegexParser {
 
     static String inputToPrefix(String input){
         ArrayList<String> output = new ArrayList<>();
-        Stack<Character> stack = new Stack<>();
+        Stack<Character> oprStack = new Stack<>();
+        StringBuilder numStack = new StringBuilder();
 
         for (Character ch : input.toCharArray()) {
             if (ch.toString().matches("[.0-9a-zA-Z]") || isConstantSymbol(ch.toString())) {
                 // Letter/variable name/numeric/decimal separator
-                output.add(ch.toString());
+                numStack.append(ch.toString());
+                // Don't add a space.
             } else if (ch.toString().matches("[({\\[]")) {
                 // Opening Bracket
-                stack.push(ch);
+                oprStack.push(ch);
+                output.add(numStack.toString());
+                numStack = new StringBuilder();
             } else if (ch.toString().matches("[)}\\]]")) {
                 // Closing Bracket
                 switch(ch.toString()) {
                     case ")":
-                        while (!stack.peek().toString().equals("(")) {
-                            output.add(0, stack.pop().toString());
+                        while (!oprStack.peek().toString().equals("(")) {
+                            output.add(0, oprStack.pop().toString());
                         }
-                        stack.pop();
+                        oprStack.pop();
                         break;
                     case "}":
                         break;
@@ -192,30 +199,29 @@ public class RegexParser {
                     default:
                         break;
                 }
+                output.add(numStack.toString());
+                numStack = new StringBuilder();
             } else if (isTwoOperandOperator(ch.toString())) {
                 // Two-Operand Operators
-                while (!stack.isEmpty() && getTwoOperandPrecedence(ch.toString()) <= getTwoOperandPrecedence(stack.peek().toString())) {
-                    output.add(0, stack.pop().toString());
+                while (!oprStack.isEmpty() && getTwoOperandPrecedence(ch.toString()) <= getTwoOperandPrecedence(oprStack.peek().toString())) {
+                    output.add(0, oprStack.pop().toString());
                 }
-                stack.push(ch);
+                oprStack.push(ch);
+                output.add(numStack.toString());
+                numStack = new StringBuilder();
             } else if (isOneOperandOperator(ch.toString())) {
                 output.add(0, ch.toString());
+                output.add(numStack.toString());
+                numStack = new StringBuilder();
             }
         }
 
-        while (!stack.isEmpty()) {
-            output.add(0, stack.pop().toString());
+        while (!oprStack.isEmpty()) {
+            output.add(0, oprStack.pop().toString());
         }
+        output.add(numStack.toString());
 
-        return joinString(output.toArray(new String[output.size()]));
-    }
-
-    private static String joinString(String[] output) {
-        StringBuilder joinedString = new StringBuilder();
-        for(String s: output) {
-            joinedString.append(s).append(' ');
-        }
-        return joinedString.substring(0, joinedString.length() - 1);
+        return TextUtils.join(" ", output);
     }
 
     static String parseEquation(String equation) {

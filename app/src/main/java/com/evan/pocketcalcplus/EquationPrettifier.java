@@ -42,6 +42,7 @@ public class EquationPrettifier {
                 case "*":
                 case "/":
                 case "%":
+                case "^":
                     // Operators, previous number is done.
                     if (!buffer.isEmpty()) {
                         output.append(convertStringToScientific(concatenateBuffer(buffer)));

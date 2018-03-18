@@ -139,9 +139,10 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
                 main.currentInput = parseEquation(main.currentInput);
                 // Add answer to history.
                 main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SCIENTIFIC, true));
+                break;
                 // scientific fragment specific buttons below!!
             case R.id.buttonSquaredSci:
-                main.currentInput += "^ 2"; break;
+                main.currentInput += " ^ 2"; break;
             case R.id.buttonTangentSci:
                 main.currentInput += RegexParser.OPERATOR_TAN; break;
             case R.id.buttonSineSci:
