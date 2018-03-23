@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        setupTabIcons(tabLayout);
     }
 
     //This creates the options menu, which currently contains the settings button
@@ -73,10 +74,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(TAB_SIMPLE, new SimpleFragment(), "Simple");
-        adapter.addFragment(TAB_SCIENTIFIC, new ScientificFragment(), "Scientific");
-        adapter.addFragment(TAB_HISTORY, new HistoryFragment(), "History");
+        adapter.addFragment(TAB_SIMPLE, new SimpleFragment(), "");
+        adapter.addFragment(TAB_SCIENTIFIC, new ScientificFragment(), "");
+        adapter.addFragment(TAB_HISTORY, new HistoryFragment(), "");
+        adapter.addFragment(TAB_DRAWING, new DrawingFragment(), "");
+        adapter.addFragment(TAB_VOICE, new VoiceFragment(), "");
         viewPager.setAdapter(adapter);
+    }
+
+    private void setupTabIcons(TabLayout tabLayout) {
+        tabLayout.getTabAt(TAB_SIMPLE).setIcon(R.drawable.ic_tab_simple);
+        tabLayout.getTabAt(TAB_SCIENTIFIC).setIcon(R.drawable.ic_tab_scientific);
+        tabLayout.getTabAt(TAB_HISTORY).setIcon(R.drawable.ic_tab_history);
+        tabLayout.getTabAt(TAB_DRAWING).setIcon(R.drawable.ic_tab_drawing);
+        tabLayout.getTabAt(TAB_VOICE).setIcon(R.drawable.ic_tab_voice);
     }
 
     public void setCurrentTab(int tab) {
@@ -89,8 +100,12 @@ public class MainActivity extends AppCompatActivity {
     static final int TAB_SCIENTIFIC = 1;
     // Alarms that activate after a certain time.
     static final int TAB_HISTORY = 2;
+    // Alarms that activate after a certain time.
+    static final int TAB_DRAWING = 3;
+    // Alarms that activate after a certain time.
+    static final int TAB_VOICE = 4;
     // The number of tabs.
-    static final int COUNT_TABS = 3;
+    static final int COUNT_TABS = 5;
 
     public class SectionsPageAdapter extends FragmentPagerAdapter {
 
