@@ -1,5 +1,6 @@
 package com.evan.pocketcalcplus;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognitionService;
@@ -20,8 +21,11 @@ import android.widget.TextView;
 import java.util.Locale;
 import java.util.ArrayList;
 
-public class VoiceFragment extends Fragment {
+import static android.app.Activity.RESULT_OK;
 
+public class VoiceFragment extends Fragment implements View.OnClickListener {
+
+    private EditText resultTEXT;
     private EditText editTextCalculatorScreen;
     private RelativeLayout relativeLayout;
 
@@ -32,6 +36,9 @@ public class VoiceFragment extends Fragment {
 
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
         relativeLayout = view.findViewById(R.id.relativeVoice);
+        resultTEXT = getActivity().findViewById(R.id.editTextCalculatorScreenVoice);
+
+        view.findViewById(R.id.btnSpeak).setOnClickListener(this);
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
@@ -61,4 +68,43 @@ public class VoiceFragment extends Fragment {
         return RegexParser.parseEquation(input);
     }
 
+    @Override
+    public void onClick(View view) {
+        // Run when a button is pressed.
+        MainActivity main = (MainActivity) getActivity();
+        if (main == null) return; // This shouldn't happen, it just helps in case of errors.
+
+        switch(view.getId()) {
+            case R.id.btnSpeak:
+                promptSpeechInput(); break;
+    }}
+
+    //This method is run when the speech button is clicked.
+    public void promptSpeechInput(){
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say calculations");
+
+       try{
+        startActivityForResult(intent , 100);
+    }
+
+    catch(ActivityNotFoundException a){
+           Toast.makeText(VoiceFragment.this.getContext() , "Device does not support speech" , Toast.LENGTH_LONG).show();
+    }
+
+}
+
+    public void onActivityResult(int request_code , int result_code , Intent intent){
+        super.onActivityResult(request_code, result_code, intent);
+
+        switch(request_code){
+            case 100: if(request_code == RESULT_OK && intent != null){
+                ArrayList<String> result = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                resultTEXT.setText(result.get(0));
+            }
+            break;
+        }
+    }
 }
