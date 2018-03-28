@@ -38,6 +38,7 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_drawing, container, false);
 
+        /*
         Engine engine = MyScriptEngine.getEngine();
         MyScriptEngine.configureEngine(engine, getContext().getPackageCodePath(),
                 getContext().getFilesDir().getPath());
@@ -106,7 +107,7 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         rootView.findViewById(R.id.button_clear).setOnClickListener(this);
 
         invalidateIconButtons();
-
+        */
 
         return rootView;
     }

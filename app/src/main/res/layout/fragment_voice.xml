@@ -35,9 +35,13 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
         android:gravity="center"
         android:onClick="onButtonClick"
-        android:src="@drawable/ic_mic" />
+        android:src="@drawable/ic_button_mic" />
 
 </RelativeLayout>

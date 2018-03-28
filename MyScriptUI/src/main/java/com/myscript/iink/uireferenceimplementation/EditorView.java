@@ -196,12 +196,13 @@ public class EditorView extends FrameLayout implements IRenderTarget
   @Override
   protected void onSizeChanged(int newWidth, int newHeight, int oldWidth, int oldHeight)
   {
+    /*
     viewWidth = newWidth;
     viewHeight = newHeight;
 
     editor.setViewSize(newWidth, newHeight);
     invalidate(renderer, EnumSet.allOf(IRenderTarget.LayerType.class));
-
+    */
     super.onSizeChanged(newWidth, newHeight, oldWidth, oldHeight);
   }
 
