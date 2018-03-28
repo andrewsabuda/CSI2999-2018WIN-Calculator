@@ -18,9 +18,19 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history,container,false);
 
+        rootView.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+
         ListView historyListView = rootView.findViewById(R.id.listHistory);
         historyListView.setAdapter(((MainActivity)getActivity()).history);
 
         return rootView;
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Set the background color.
+        this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+    }
+
 }

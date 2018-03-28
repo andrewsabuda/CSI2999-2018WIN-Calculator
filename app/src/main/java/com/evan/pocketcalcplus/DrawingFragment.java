@@ -38,6 +38,8 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_drawing, container, false);
 
+        rootView.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+
         /*
         Engine engine = MyScriptEngine.getEngine();
         MyScriptEngine.configureEngine(engine, getContext().getPackageCodePath(),
@@ -110,6 +112,14 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
         */
 
         return rootView;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Set the background color.
+        this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
     }
 
     private boolean addImage(final float x, final float y) {

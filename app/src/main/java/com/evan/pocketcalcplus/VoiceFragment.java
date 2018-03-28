@@ -34,9 +34,8 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_voice, container, false);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
-        view.setBackgroundColor(Color.parseColor(background_color));
+
+        view.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
 
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);
@@ -46,6 +45,16 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Refresh the text.
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+        // Set the background color.
+        this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
     }
 
     @Override
