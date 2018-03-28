@@ -39,5 +39,19 @@
     <string name="historyDefault">{BLANK}</string>
     <string name="settings_id">Settings</string>
 
+    <string name="newPackage_title">New package - enter file name</string>
+    <string name="openPackage_title">Open package - select file</string>
+    <string name="newPart_title">New part - select type</string>
+    <string name="exportType_title">Export - select type</string>
+    <string name="exportPackage_title">Export - select file</string>
+    <string name="addImage_title">Add image - select file</string>
+    <string name="inputMode_title">Input mode - select behavior</string>
+
+    <string name="inputMode_forcePen">Pen</string>
+    <string name="inputMode_forceTouch">Touch</string>
+    <string name="inputMode_auto">Auto</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

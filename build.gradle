@@ -19,8 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io'
-            } // Used for getting Github repositories.
+        maven { url 'https://jitpack.io' } // Used for getting Github repositories.
     }
 
 
