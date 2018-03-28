@@ -1,5 +1,6 @@
 package com.evan.pocketcalcplus;
 
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+import android.preference.PreferenceManager;
 
 public class ScientificFragment extends Fragment implements View.OnClickListener {
     private EditText editTextCalculatorScreen;
@@ -27,6 +29,7 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenSci);
 
         relativeLayout = view.findViewById(R.id.relativeSci);
+        //relativeLayout.setBackgroundColor(222);
 
         view.findViewById(R.id.buttonZeroSci).setOnClickListener(this);
         view.findViewById(R.id.buttonOneSci).setOnClickListener(this);

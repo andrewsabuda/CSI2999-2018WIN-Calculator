@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Layout">
+        <android.support.v7.preference.EditTextPreference
+            android:defaultValue="#6b6b6b"
+            android:key="background_color"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="@string/background_color_summary"
+            android:title="@string/background_color" />
+    </PreferenceCategory>
+</PreferenceScreen>

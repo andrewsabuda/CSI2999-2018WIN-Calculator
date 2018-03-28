@@ -1,6 +1,7 @@
 package com.evan.pocketcalcplus;
 
 import android.content.Intent;
+import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Starting.");
+        android.support.v7.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
         history = new HistoryListAdapter(this, new ArrayList<HistoryListItem>());
 
