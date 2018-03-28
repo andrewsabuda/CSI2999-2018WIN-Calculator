@@ -1,6 +1,7 @@
 package com.evan.pocketcalcplus;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -25,7 +26,9 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scientific,container,false);
-
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
+        view.setBackgroundColor(Color.parseColor(background_color));
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenSci);
 
         relativeLayout = view.findViewById(R.id.relativeSci);

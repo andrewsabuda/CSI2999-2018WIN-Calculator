@@ -2,7 +2,10 @@ package com.evan.pocketcalcplus;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.RecognitionService;
 import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
@@ -31,7 +34,9 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_voice, container, false);
-
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
+        view.setBackgroundColor(Color.parseColor(background_color));
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
 
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);

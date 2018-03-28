@@ -1,5 +1,7 @@
 package com.evan.pocketcalcplus;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.graphics.Color;
 import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class SimpleFragment extends Fragment implements View.OnClickListener {
@@ -26,6 +29,9 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple,container,false);
         //super.onCreate(savedInstanceState);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
+        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
+        view.setBackgroundColor(Color.parseColor(background_color));
 
         // The following code initializes the buttons and finds them by their xml ids
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreen);
