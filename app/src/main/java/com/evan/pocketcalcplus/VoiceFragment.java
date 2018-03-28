@@ -25,18 +25,14 @@ import static android.app.Activity.RESULT_OK;
 
 public class VoiceFragment extends Fragment implements View.OnClickListener {
 
-    private EditText resultTEXT;
     private EditText editTextCalculatorScreen;
-    private RelativeLayout relativeLayout;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_voice,container,false);
+        View view = inflater.inflate(R.layout.fragment_voice, container, false);
 
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
-        relativeLayout = view.findViewById(R.id.relativeVoice);
-        resultTEXT = getActivity().findViewById(R.id.editTextCalculatorScreenVoice);
 
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);
 
@@ -51,7 +47,7 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         Log.i("VoiceFragment", "setUserVisibleHint");
-        if(isVisibleToUser) {
+        if (isVisibleToUser) {
             MainActivity main = ((MainActivity) getActivity());
             if (main != null) {
                 Log.i("VoiceFragment", main.currentInput);
@@ -74,37 +70,41 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
         MainActivity main = (MainActivity) getActivity();
         if (main == null) return; // This shouldn't happen, it just helps in case of errors.
 
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.btnSpeak:
-                promptSpeechInput(); break;
-    }}
+                promptSpeechInput();
+                break;
+        }
+    }
+
+    static final int CALC_SPEECH_INPUT = 100;
 
     //This method is run when the speech button is clicked.
-    public void promptSpeechInput(){
+    public void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say calculations");
 
-       try{
-        startActivityForResult(intent , 100);
+        try {
+            startActivityForResult(intent, CALC_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(VoiceFragment.this.getContext(), "Device does not support speech", Toast.LENGTH_LONG).show();
+        }
+
     }
 
-    catch(ActivityNotFoundException a){
-           Toast.makeText(VoiceFragment.this.getContext() , "Device does not support speech" , Toast.LENGTH_LONG).show();
-    }
-
-}
-
-    public void onActivityResult(int request_code , int result_code , Intent intent){
+    public void onActivityResult(int request_code, int result_code, Intent intent) {
         super.onActivityResult(request_code, result_code, intent);
 
-        switch(request_code){
-            case 100: if(request_code == RESULT_OK && intent != null){
-                ArrayList<String> result = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                resultTEXT.setText(result.get(0));
-            }
-            break;
+        switch (request_code) {
+            case CALC_SPEECH_INPUT:
+                if (result_code == RESULT_OK && intent != null) {
+                    ArrayList<String> result = intent.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    ((MainActivity) getActivity()).currentInput = result.get(0);
+                }
+                break;
         }
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
     }
 }

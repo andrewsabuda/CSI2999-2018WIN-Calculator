@@ -8,8 +8,6 @@ import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import ch.obermuhlner.math.big.BigDecimalMath;
 
@@ -25,6 +23,16 @@ public class RegexParser {
     static final String OPERATOR_LOG = "\u0407";
     static final String OPERATOR_PI = "\u03A0"; // The actual Pi symbol.
     static final String OPERATOR_EULER = "\u2107"; // The actual Euler symbol.
+
+    public static MathContext mathContext = new MathContext(20);
+
+    private static BigDecimal radiansToDegrees(BigDecimal radians) {
+        return radians.multiply(new BigDecimal("180")).divide(BigDecimalMath.pi(mathContext), BigDecimal.ROUND_HALF_UP);
+    }
+
+    private static BigDecimal degreesToRadians(BigDecimal degrees) {
+        return degrees.multiply(BigDecimalMath.pi(mathContext)).divide(new BigDecimal("180"), BigDecimal.ROUND_HALF_UP);
+    }
 
     private static BigDecimal performOperation(String operator, BigDecimal operand1, BigDecimal operand2)
         throws ArithmeticException {
@@ -43,7 +51,7 @@ public class RegexParser {
                 return operand1.remainder(operand2);
             case "^":
                 // ArithmaticException here means invalid exponent (fractional/massive).
-                return BigDecimalMath.pow(operand1, operand2, new MathContext(20));
+                return BigDecimalMath.pow(operand1, operand2, mathContext);
             default:
                 System.out.println("Bad operator: " + operator);
                 return new BigDecimal("0");
@@ -55,19 +63,19 @@ public class RegexParser {
         // One-operator expressions.
         switch(operator) {
             case OPERATOR_SIN:
-                return BigDecimalMath.sin(operand, new MathContext(20));
+                return BigDecimalMath.sin(operand, mathContext);
             case OPERATOR_COS:
-                return BigDecimalMath.cos(operand, new MathContext(20));
+                return BigDecimalMath.cos(operand, mathContext);
             case OPERATOR_TAN:
-                return BigDecimalMath.tan(operand, new MathContext(20));
+                return BigDecimalMath.tan(operand, mathContext);
             case OPERATOR_ARCSIN:
-                return BigDecimalMath.asin(operand, new MathContext(20));
+                return BigDecimalMath.asin(operand, mathContext);
             case OPERATOR_ARCCOS:
-                return BigDecimalMath.acos(operand, new MathContext(20));
+                return BigDecimalMath.acos(operand, mathContext);
             case OPERATOR_ARCTAN:
-                return BigDecimalMath.atan(operand, new MathContext(20));
+                return BigDecimalMath.atan(operand, mathContext);
             case OPERATOR_LOG:
-                return BigDecimalMath.log(operand, new MathContext(20));
+                return BigDecimalMath.log(operand, mathContext);
             default:
                 System.out.println("Bad operator: " + operator);
                 return new BigDecimal("0");
@@ -86,9 +94,9 @@ public class RegexParser {
         } else if (isConstantSymbol(current)) {
             switch(current) {
                 case OPERATOR_PI:
-                    return BigDecimalMath.pi(new MathContext(20));
+                    return BigDecimalMath.pi(mathContext);
                 case OPERATOR_EULER:
-                    return BigDecimalMath.e(new MathContext(20));
+                    return BigDecimalMath.e(mathContext);
                 default:
                     return new BigDecimal("0");
             }
