@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:persistent="false">
 
-    <PreferenceCategory android:title="Layout">
-        <android.support.v7.preference.EditTextPreference
+    <PreferenceCategory android:title="Numbers">
+
+        <EditTextPreference
+            android:defaultValue="#D0CCC8"
+            android:key="number_Color"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/number_Color" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Operations">
+
+        <EditTextPreference
+            android:defaultValue="#FFB44444"
+            android:key="function_Color"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/operation_Color" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Text">
+
+        <EditTextPreference
+            android:defaultValue="#000"
+            android:key="Text_Color"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/text_Color" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Background">
+        <EditTextPreference
             android:defaultValue="#6b6b6b"
             android:key="background_color"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:summary="@string/background_color_summary"
             android:title="@string/background_color" />
     </PreferenceCategory>
 </PreferenceScreen>

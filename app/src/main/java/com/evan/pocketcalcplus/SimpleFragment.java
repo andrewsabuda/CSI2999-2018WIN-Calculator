@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -21,6 +22,7 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 public class SimpleFragment extends Fragment implements View.OnClickListener {
     // This creates the EditText for the calculator screen
     private EditText editTextCalculatorScreen;
+
 
     private PopupWindow popupWindow;
     private RelativeLayout relativeLayout;
@@ -32,9 +34,13 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
         String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
         view.setBackgroundColor(Color.parseColor(background_color));
+        String text_Color = sharedPref.getString(SettingsActivity.tc, "#000000");
+
+
 
         // The following code initializes the buttons and finds them by their xml ids
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreen);
+        editTextCalculatorScreen.setTextColor(Color.parseColor(text_Color));
 
         relativeLayout = view.findViewById(R.id.relative);
 
@@ -59,12 +65,14 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.buttonEquals).setOnClickListener(this);
         //view.findViewById(R.id.buttonHistory).setOnClickListener(this);
 
+
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
 
         return view;
     }
+
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

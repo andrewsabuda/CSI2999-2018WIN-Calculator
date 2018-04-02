@@ -29,7 +29,9 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
         String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
         view.setBackgroundColor(Color.parseColor(background_color));
+        String text_Color = sharedPref.getString(SettingsActivity.tc, "#000000");
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenSci);
+        editTextCalculatorScreen.setTextColor(Color.parseColor(text_Color));
 
         relativeLayout = view.findViewById(R.id.relativeSci);
         //relativeLayout.setBackgroundColor(222);
