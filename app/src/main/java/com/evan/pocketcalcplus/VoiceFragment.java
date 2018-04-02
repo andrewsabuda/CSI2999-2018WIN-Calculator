@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognitionService;
 import android.speech.RecognizerIntent;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
@@ -26,17 +27,17 @@ import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
-public class VoiceFragment extends Fragment implements View.OnClickListener {
+public class VoiceFragment extends Fragment implements View.OnClickListener, TextToSpeech.OnInitListener {
 
     private EditText editTextCalculatorScreen;
+    private TextToSpeech mTTS;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_voice, container, false);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
-        view.setBackgroundColor(Color.parseColor(background_color));
+
+        view.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
 
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);
@@ -45,7 +46,19 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
         editTextCalculatorScreen.setTextIsSelectable(true);
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
 
+        mTTS = new TextToSpeech(getActivity(), this);
+
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Refresh the text.
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+        // Set the background color.
+        this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
     }
 
     @Override
@@ -111,5 +124,51 @@ public class VoiceFragment extends Fragment implements View.OnClickListener {
                 break;
         }
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+        //text to speech changes
+        //next few lines automatically calculates the answer
+        MainActivity main = (MainActivity) getActivity();
+       // // Add expression to history.
+        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, false));
+        // Calculate answer.
+        main.currentInput = parseEquation(main.currentInput);
+        // Add answer to history.
+        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, true));
+        //this line speaks the answer back to the user
+        speak(main.currentInput);
+
     }
+
+    @Override
+    public void onInit(int status) {
+            if (status == TextToSpeech.SUCCESS) {
+                int result = mTTS.setLanguage(Locale.US);
+
+                if (result == TextToSpeech.LANG_MISSING_DATA
+                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                    Log.e("TTS", "Language not supported");
+            } else {
+                Log.e("TTS", "Initialization failed");
+            }
+        }
+    }
+
+    private void speak(String text){
+        //String text = editTextCalculatorScreen.getText().toString();
+
+        mTTS.setPitch(1);
+        mTTS.setSpeechRate(0.8f);
+
+        mTTS.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+        }
+
+        super.onDestroy();
+    }
+
 }

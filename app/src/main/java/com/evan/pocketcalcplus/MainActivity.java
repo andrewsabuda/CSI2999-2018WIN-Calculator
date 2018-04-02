@@ -47,6 +47,19 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons(tabLayout);
+
+        // Fix which ensures onResume is always called.
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
+            FragmentManager manager = getSupportFragmentManager();
+            if (manager != null) {
+                int backStackEntryCount = manager.getBackStackEntryCount();
+                if (backStackEntryCount == 0) {
+                    finish();
+                }
+                Fragment fragment = manager.getFragments().get(backStackEntryCount - 1);
+                fragment.onResume();
+            }
+        });
     }
 
     //This creates the options menu, which currently contains the settings button
