@@ -1,40 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:persistent="false">
 
-    <PreferenceCategory android:title="Numbers">
-
-        <EditTextPreference
-            android:defaultValue="#D0CCC8"
-            android:key="number_Color"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/number_Color" />
+    <PreferenceCategory android:title="Theme">
+        <android.support.v7.preference.ListPreference
+            android:key="theme"
+            android:title="@string/theme"
+            android:summary="User interface themes"
+            android:entries="@array/theme_list_display"
+            android:entryValues="@array/theme_list_internal"
+            />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Operations">
-
-        <EditTextPreference
-            android:defaultValue="#FFB44444"
-            android:key="function_Color"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/operation_Color" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="Text">
-
-        <EditTextPreference
-            android:defaultValue="#000"
-            android:key="Text_Color"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/text_Color" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="Background">
-        <EditTextPreference
-            android:defaultValue="#6b6b6b"
-            android:key="background_color"
-            android:selectAllOnFocus="true"
-            android:singleLine="true"
-            android:title="@string/background_color" />
-    </PreferenceCategory>
-</PreferenceScreen>
+</android.support.v7.preference.PreferenceScreen>

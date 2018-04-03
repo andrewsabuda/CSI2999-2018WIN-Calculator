@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="textColor">#000</color>
     <color name="colorPrimary">#FFB44444</color>
     <color name="colorPrimaryAlternate">#D0CCC8</color>
     <color name="colorPrimaryDark">#FFB22222</color>
     <color name="colorAccent">#FF222222</color>
-    <color name="colorBackground">#6b6b6b</color>
 
-    <color name="toolbar_icon_disabled">@color/colorBackground</color>
+    <color name="backgroundDark">#FF6b6b6b</color>
+    <color name="backgroundLight">@android:color/background_light</color>
+
+    <color name="textDark">@android:color/primary_text_light</color>
+    <color name="textLight">@android:color/primary_text_dark</color>
+
+
+    <color name="toolbar_icon_disabled">#D0CCC8</color>
     <color name="toolbar_icon_enabled">@android:color/white</color>
     <color name="image_button_disabled">@android:color/darker_gray</color>
     <color name="image_button_enabled">@color/colorPrimary</color>

@@ -4,7 +4,7 @@
     android:id="@+id/relativeSci"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/backgroundLight"
     tools:context=".ScientificFragment">
 
     <LinearLayout
@@ -43,7 +43,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSine"
                 android:textSize="@dimen/fontSizeSciCalcButtons"
                  />
@@ -53,7 +52,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonCosine"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -62,7 +60,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonTangent"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -71,7 +68,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonPi"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
@@ -88,7 +84,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonLn"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -97,7 +92,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonExp"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -106,7 +100,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSquared"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -115,7 +108,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonFactorial"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -133,7 +125,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonClear"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -142,7 +133,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonMultiply"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -151,7 +141,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDivide"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -160,7 +149,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDelete"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
@@ -201,7 +189,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonModulo"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
@@ -242,7 +229,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonSubtract"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
@@ -284,7 +270,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonAdd"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>
@@ -309,7 +294,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonDecimalPoint"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -318,7 +302,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonParenthesis"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
 
@@ -327,7 +310,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimary"
                 android:text="@string/buttonEquals"
                 android:textSize="@dimen/fontSizeSciCalcButtons" />
         </LinearLayout>

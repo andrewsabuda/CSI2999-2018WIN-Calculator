@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Currently the app only contains one language,
+        so it makes sense to put UI colors and theme names in the same place.
+        If localizing, please move the strings to strings.xml,
+        and the colors to colors.xml.
+    -->
+
+    <string-array name="theme_list_internal">
+        <item>stream</item>
+        <item>dracula</item>
+        <item>junebug</item>
+        <item>sunshine</item>
+        <item>kitten</item>
+        <item>forest</item>
+    </string-array>
+
+    <string-array name="theme_list_display">
+        <item>@string/theme_name_stream</item>
+        <item>@string/theme_name_dracula</item>
+        <item>@string/theme_name_junebug</item>
+        <item>@string/theme_name_sunshine</item>
+        <item>@string/theme_name_kitten</item>
+        <item>@string/theme_name_forest</item>
+    </string-array>
+
+    <!-- STRE4M: Dark background, dark purple with bright purple accents -->
+    <string name="theme_name_stream">STRE4M</string>
+    <color name="theme_text_stream">@color/textLight</color>
+    <color name="theme_background_stream">#FF424242</color>
+    <color name="theme_header_stream">#FF512DA8</color>
+    <color name="theme_tablist_stream">#FF673AB7</color>
+    <color name="theme_numbers_stream">#FFD0CCC8</color>
+    <color name="theme_operations_stream">#FF9575CD</color>
+
+    <!-- Dracula: Dark background, dark red with bright red accents -->
+    <string name="theme_name_dracula">Dracula</string>
+    <color name="theme_text_dracula">@color/textLight</color>
+    <color name="theme_background_dracula">#FF424242</color>
+    <color name="theme_header_dracula">#FFB71C1C</color>
+    <color name="theme_tablist_dracula">#FFD32F2F</color>
+    <color name="theme_numbers_dracula">#FFE53935</color>
+    <color name="theme_operations_dracula">#FFE57373</color>
+
+    <!-- Junebug: Dark background, navy blue with bright yellow accents -->
+    <string name="theme_name_junebug">Junebug</string>
+    <color name="theme_text_junebug">@color/textLight</color>
+    <color name="theme_background_junebug">@color/backgroundDark</color>
+    <color name="theme_header_junebug">#FF303F9F</color>
+    <color name="theme_tablist_junebug">#FF3F51B5</color>
+    <color name="theme_numbers_junebug">#FFD0CCC8</color>
+    <color name="theme_operations_junebug">#FFFFF176</color>
+
+    <!-- Sunshine: Light background, light blue with orange accents -->
+    <string name="theme_name_sunshine">Sunshine</string>
+    <color name="theme_text_sunshine">@color/textDark</color>
+    <color name="theme_background_sunshine">@color/backgroundLight</color>
+    <color name="theme_header_sunshine">#FF0288D1</color>
+    <color name="theme_tablist_sunshine">#FF03A9F4</color>
+    <color name="theme_numbers_sunshine">#FFD0CCC8</color>
+    <color name="theme_operations_sunshine">#FFFFB74D</color>
+
+    <!-- Goodbye Kitten: Light background, light pink with dark pink accents -->
+    <string name="theme_name_kitten">Goodbye Kitten</string>
+    <color name="theme_text_kitten">@color/textDark</color>
+    <color name="theme_background_kitten">@color/backgroundLight</color>
+    <color name="theme_header_kitten">#FFF48FB1</color>
+    <color name="theme_tablist_kitten">#FFF48FB1</color>
+    <color name="theme_numbers_kitten">#FFD0CCC8</color>
+    <color name="theme_operations_kitten">#FFF8BBD0</color>
+
+    <!-- Forest: Light background, dark green with light green accents -->
+    <string name="theme_name_forest">Forest</string>
+    <color name="theme_text_forest">@color/textDark</color>
+    <color name="theme_background_forest">@color/backgroundLight</color>
+    <color name="theme_header_forest">#FF4CAF50</color>
+    <color name="theme_tablist_forest">#FF81C784</color>
+    <color name="theme_numbers_forest">#FFD0CCC8</color>
+    <color name="theme_operations_forest">#FFAED581</color>
+
+</resources>

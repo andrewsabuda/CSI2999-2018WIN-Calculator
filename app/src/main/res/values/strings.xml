@@ -53,6 +53,7 @@
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="theme">Theme</string>
     <string name="background_color">Background Color</string>
     <string name="background_color_summary">Controls the color of the background</string>
     <string name="operation_Color">Operation Color</string>

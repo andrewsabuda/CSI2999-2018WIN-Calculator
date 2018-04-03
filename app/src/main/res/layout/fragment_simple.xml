@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/backgroundLight"
     tools:context=".SimpleFragment"
     android:id="@+id/relative">
 
@@ -41,7 +41,7 @@
                 android:text="@string/buttonClear"
                 android:textAllCaps="false"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -50,7 +50,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonMultiply"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -59,7 +59,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonDivide"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -68,7 +68,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonDelete"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,7 +84,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonSeven"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -93,7 +93,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonEight"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -102,7 +102,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonNine"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -111,7 +111,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonModulo"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +127,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonFour"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -136,7 +136,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonFive"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -145,7 +145,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonSix"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -154,7 +154,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonSubtract"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
         </LinearLayout>
 
         <LinearLayout
@@ -170,7 +170,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonOne"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -179,7 +179,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonTwo"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -188,7 +188,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonThree"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -197,7 +197,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonAdd"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
         </LinearLayout>
 
@@ -214,7 +214,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonZero"
-                android:theme="@style/AppTheme.Button.PrimaryAlternate" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -223,7 +223,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonDecimalPoint"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:id="@+id/buttonParenthesis"
@@ -232,7 +232,7 @@
                 android:layout_weight="1"
                 android:text="( )"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
 
             <Button
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -241,7 +241,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/buttonEquals"
-                android:theme="@style/AppTheme.Button.Primary" />
+                android:theme="@style/AppTheme.Button" />
         </LinearLayout>
 
     </LinearLayout>

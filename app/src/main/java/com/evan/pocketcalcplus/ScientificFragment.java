@@ -2,6 +2,8 @@ package com.evan.pocketcalcplus;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -20,21 +22,24 @@ import android.preference.PreferenceManager;
 public class ScientificFragment extends Fragment implements View.OnClickListener {
     private EditText editTextCalculatorScreen;
 
-    private RelativeLayout relativeLayout;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_scientific,container,false);
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this.getActivity());
-        String background_color = sharedPref.getString(SettingsActivity.bc, "#6b6b6b");
-        view.setBackgroundColor(Color.parseColor(background_color));
-        String text_Color = sharedPref.getString(SettingsActivity.tc, "#000000");
-        editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenSci);
-        editTextCalculatorScreen.setTextColor(Color.parseColor(text_Color));
 
-        relativeLayout = view.findViewById(R.id.relativeSci);
-        //relativeLayout.setBackgroundColor(222);
+        view.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+        this.getActivity().findViewById(R.id.appbar).setBackgroundColor(SettingsActivity.getTabColor(this.getActivity()));
+        setOperationButtonColor(view, SettingsActivity.getOperationColor(this.getActivity()));
+        setNumberButtonColor(view, SettingsActivity.getNumberColor(this.getActivity()));
+        ((MainActivity) getActivity()).getSupportActionBar()
+                .setBackgroundDrawable(new ColorDrawable(SettingsActivity.getHeaderColor(this.getActivity())));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getActivity().getWindow().setStatusBarColor(SettingsActivity.getHeaderColor(this.getActivity()));
+        }
+
+        // The following code initializes the buttons and finds them by their xml ids
+        editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenSci);
+        editTextCalculatorScreen.setTextColor(SettingsActivity.getTextColor(this.getActivity()));
 
         view.findViewById(R.id.buttonZeroSci).setOnClickListener(this);
         view.findViewById(R.id.buttonOneSci).setOnClickListener(this);
@@ -70,6 +75,47 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Refresh the text.
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+        // Set the background color.
+        this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+        this.getActivity().findViewById(R.id.appbar).setBackgroundColor(SettingsActivity.getTabColor(this.getActivity()));
+        setOperationButtonColor(this.getView(), SettingsActivity.getOperationColor(this.getActivity()));
+        setNumberButtonColor(this.getView(), SettingsActivity.getNumberColor(this.getActivity()));
+        ((MainActivity) getActivity()).getSupportActionBar()
+                .setBackgroundDrawable(new ColorDrawable(SettingsActivity.getHeaderColor(this.getActivity())));
+    }
+
+    public void setOperationButtonColor(View rootView, int color) {
+        rootView.findViewById(R.id.buttonAddSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonSubtractSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonMultiplySci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonDivideSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonModuloSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonClearSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonDeleteSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonDecimalPointSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonEqualsSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonParenthesesSci).setBackgroundColor(color);
+    }
+
+    public void setNumberButtonColor(View rootView, int color) {
+        rootView.findViewById(R.id.buttonOneSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonTwoSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonThreeSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonFourSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonFiveSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonSixSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonSevenSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonEightSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonNineSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonZeroSci).setBackgroundColor(color);
     }
 
     @Override

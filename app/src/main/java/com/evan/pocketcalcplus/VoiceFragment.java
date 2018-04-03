@@ -4,6 +4,9 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.speech.RecognitionService;
@@ -11,12 +14,14 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +29,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 import java.util.ArrayList;
+import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -38,17 +44,29 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
         View view = inflater.inflate(R.layout.fragment_voice, container, false);
 
         view.setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+        setButtonColor(view, SettingsActivity.getOperationColor(this.getActivity()));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getActivity().getWindow().setStatusBarColor(SettingsActivity.getHeaderColor(this.getActivity()));
+        }
+
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
 
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);
+        view.findViewById(R.id.btnSpeak).setBackgroundColor(SettingsActivity.getOperationColor(this.getActivity()));
 
         editTextCalculatorScreen.setInputType(InputType.TYPE_NULL);
         editTextCalculatorScreen.setTextIsSelectable(true);
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
+        editTextCalculatorScreen.setTextColor(SettingsActivity.getTextColor(this.getActivity()));
 
         mTTS = new TextToSpeech(getActivity(), this);
 
         return view;
+    }
+
+    public void setButtonColor(View rootView, int color) {
+        ((ImageButton)rootView.findViewById(R.id.btnSpeak)).getDrawable().setColorFilter(new
+                PorterDuffColorFilter(color, PorterDuff.Mode.OVERLAY));
     }
 
     @Override
@@ -59,6 +77,7 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
         // Set the background color.
         this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
+        setButtonColor(this.getView(), SettingsActivity.getOperationColor(this.getActivity()));
     }
 
     @Override
