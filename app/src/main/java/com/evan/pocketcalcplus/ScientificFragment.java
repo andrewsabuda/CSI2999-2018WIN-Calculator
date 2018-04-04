@@ -217,8 +217,8 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
                 main.currentInput += RegexParser.OPERATOR_LOG; break;
             case R.id.buttonExponentSci:
                 main.currentInput += "^"; break;
-            case R.id.buttonFactorialSci:
-                main.currentInput += "!"; break;
+            //case R.id.buttonFactorialSci:
+                //main.currentInput += "!"; break;
             case R.id.buttonPiSci:
                 main.currentInput += RegexParser.OPERATOR_PI; break;
             case R.id.buttonParenthesesSci:
