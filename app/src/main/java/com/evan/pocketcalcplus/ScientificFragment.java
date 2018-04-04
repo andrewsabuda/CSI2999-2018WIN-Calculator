@@ -90,6 +90,8 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         setNumberButtonColor(this.getView(), SettingsActivity.getNumberColor(this.getActivity()));
         ((MainActivity) getActivity()).getSupportActionBar()
                 .setBackgroundDrawable(new ColorDrawable(SettingsActivity.getHeaderColor(this.getActivity())));
+
+        ((MainActivity) getActivity()).toggleViewPager(false);
     }
 
     public void setOperationButtonColor(View rootView, int color) {
@@ -103,6 +105,14 @@ public class ScientificFragment extends Fragment implements View.OnClickListener
         rootView.findViewById(R.id.buttonDecimalPointSci).setBackgroundColor(color);
         rootView.findViewById(R.id.buttonEqualsSci).setBackgroundColor(color);
         rootView.findViewById(R.id.buttonParenthesesSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonSineSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonCosineSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonTangentSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonPiSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonLnSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonSquaredSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonExponentSci).setBackgroundColor(color);
+        rootView.findViewById(R.id.buttonFactorialSci).setBackgroundColor(color);
     }
 
     public void setNumberButtonColor(View rootView, int color) {

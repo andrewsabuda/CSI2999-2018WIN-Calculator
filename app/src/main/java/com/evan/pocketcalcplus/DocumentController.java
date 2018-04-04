@@ -118,7 +118,7 @@ public class DocumentController {
         currentPackage = newPackage;
         currentPart = newPart;
 
-        activity.setTitle(currentFile.getName() + " - " + currentPart.getType());
+        //activity.setTitle(currentFile.getName() + " - " + currentPart.getType());
     }
 
     public final boolean newPackage() {
@@ -192,12 +192,30 @@ public class DocumentController {
     public final boolean saveToTemp() {
         if (currentPart == null)
             return false;
-
         try {
             currentPart.getPackage().saveToTemp();
             storeState();
         } catch (IOException e) {
             Toast.makeText(this.activity, "Failed to save package to temporary directory", Toast.LENGTH_LONG).show();
+        }
+        return true;
+    }
+
+    public final boolean newMathPart() {
+        if (currentPackage == null) {
+            final Activity context = this.activity;
+            String fileName = makeUntitledFilename();
+            currentFile = new File(activity.getFilesDir(), fileName);
+            try {
+                currentPackage = editor.getEngine().createPackage(currentFile);
+                setPart(currentFile, currentPackage, currentPackage.createPart("Math"));
+            } catch (IOException e) {
+                Log.i("DocumentController", "Failed to create package");
+                Toast.makeText(context, "Failed to create package", Toast.LENGTH_LONG).show();
+            } catch (IllegalArgumentException e) {
+                Log.i("DocumentController", "Package already opened");
+                Toast.makeText(context, "Package already opened", Toast.LENGTH_LONG).show();
+            }
         }
         return true;
     }

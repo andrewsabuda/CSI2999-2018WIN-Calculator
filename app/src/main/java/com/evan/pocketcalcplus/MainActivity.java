@@ -31,7 +31,13 @@ public class MainActivity extends AppCompatActivity {
     // This stores the current input to be displayed or prettified.
     public String currentInput = "";
 
-    private ViewPager viewPager;
+    private TogglableViewPager viewPager;
+
+    public void toggleViewPager(boolean enabled) {
+        // Set whether the view pager can swipe between tabs or not.
+        // Disable swiping on drawing tab.
+        viewPager.setPagingEnabled(enabled);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Starting.");
         android.support.v7.preference.PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
-        history = new HistoryListAdapter(this, new ArrayList<HistoryListItem>());
+        history = new HistoryListAdapter(this, new ArrayList<>());
 
         // Set up the ViewPager with the sections adapter.
         viewPager = findViewById(R.id.container);

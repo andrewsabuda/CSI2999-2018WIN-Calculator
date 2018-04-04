@@ -88,6 +88,8 @@ public class SimpleFragment extends Fragment implements View.OnClickListener {
         setNumberButtonColor(this.getView(), SettingsActivity.getNumberColor(this.getActivity()));
         ((MainActivity) getActivity()).getSupportActionBar()
                 .setBackgroundDrawable(new ColorDrawable(SettingsActivity.getHeaderColor(this.getActivity())));
+
+        ((MainActivity) getActivity()).toggleViewPager(false);
     }
 
     public void setOperationButtonColor(View rootView, int color) {

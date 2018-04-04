@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,7 +19,7 @@
             android:layout_marginStart="@dimen/text_button_margin"
             android:layout_marginLeft="@dimen/text_button_margin"
             android:text="@string/inputMode_forcePen"
-            android:textColor="@color/colorPrimaryAlternate"
+            android:textColor="@color/textDark"
             android:background="@color/colorPrimary"/>
 
         <Button
@@ -27,7 +28,7 @@
             android:layout_height="@dimen/text_button_height"
             android:layout_marginTop="@dimen/text_button_margin"
             android:text="@string/inputMode_forceTouch"
-            android:textColor="@color/colorPrimaryAlternate"
+            android:textColor="@color/textDark"
             android:background="@color/colorPrimary"/>
 
         <Button
@@ -36,7 +37,7 @@
             android:layout_height="@dimen/text_button_height"
             android:layout_marginTop="@dimen/text_button_margin"
             android:text="@string/inputMode_auto"
-            android:textColor="@color/colorPrimaryAlternate"
+            android:textColor="@color/textDark"
             android:background="@color/colorPrimary"/>
 
         <LinearLayout
@@ -66,6 +67,13 @@
                 android:layout_height="@dimen/image_button_size"
                 android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_delete"/>
+
+            <ImageButton
+                android:id="@+id/button_convert"
+                android:layout_width="@dimen/image_button_size"
+                android:layout_height="@dimen/image_button_size"
+                android:background="?android:selectableItemBackground"
+                app:srcCompat="@drawable/ic_convert"/>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

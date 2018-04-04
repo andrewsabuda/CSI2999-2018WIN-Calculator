@@ -2,19 +2,14 @@ package com.evan.pocketcalcplus;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.speech.RecognitionService;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,14 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
-import java.util.Locale;
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -73,11 +64,24 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
     public void onResume() {
         super.onResume();
 
+        mTTS = new TextToSpeech(getActivity(), this);
+
         // Refresh the text.
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
         // Set the background color.
         this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
-        setButtonColor(this.getView(), SettingsActivity.getOperationColor(this.getActivity()));
+
+        ((MainActivity) getActivity()).toggleViewPager(false);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mTTS != null) {
+            mTTS.stop();
+            mTTS.shutdown();
+            mTTS = null;
+        }
     }
 
     @Override
@@ -108,8 +112,11 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
         if (main == null) return; // This shouldn't happen, it just helps in case of errors.
 
         switch (view.getId()) {
-            case R.id.btnSpeak:
+            case R.id.btnRecord:
                 promptSpeechInput();
+                break;
+            case R.id.btnSpeak:
+                solveAndSpeak();
                 break;
         }
     }
@@ -142,19 +149,22 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
                 }
                 break;
         }
-        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
         //text to speech changes
+        solveAndSpeak();
+    }
+
+    public void solveAndSpeak() {
         //next few lines automatically calculates the answer
         MainActivity main = (MainActivity) getActivity();
-       // // Add expression to history.
-        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, false));
+        // // Add expression to history.
+        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_VOICE, false));
         // Calculate answer.
         main.currentInput = parseEquation(main.currentInput);
+        editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
         // Add answer to history.
-        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_SIMPLE, true));
+        main.history.add(new HistoryListItem(main.currentInput, MainActivity.TAB_VOICE, true));
         //this line speaks the answer back to the user
         speak(main.currentInput);
-
     }
 
     @Override
@@ -185,8 +195,8 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
         if (mTTS != null) {
             mTTS.stop();
             mTTS.shutdown();
+            mTTS = null;
         }
-
         super.onDestroy();
     }
 
