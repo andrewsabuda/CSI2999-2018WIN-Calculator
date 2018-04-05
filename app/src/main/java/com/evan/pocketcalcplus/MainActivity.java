@@ -99,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(TAB_SIMPLE, new SimpleFragment(), "");
         adapter.addFragment(TAB_SCIENTIFIC, new ScientificFragment(), "");
         adapter.addFragment(TAB_HISTORY, new HistoryFragment(), "");
-        adapter.addFragment(TAB_DRAWING, new DrawingFragment(), "");
         adapter.addFragment(TAB_VOICE, new VoiceFragment(), "");
+        //adapter.addFragment(TAB_DRAWING, new DrawingFragment(), "");
         viewPager.setAdapter(adapter);
     }
 
@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(TAB_SIMPLE).setIcon(R.drawable.ic_tab_simple);
         tabLayout.getTabAt(TAB_SCIENTIFIC).setIcon(R.drawable.ic_tab_scientific);
         tabLayout.getTabAt(TAB_HISTORY).setIcon(R.drawable.ic_tab_history);
-        tabLayout.getTabAt(TAB_DRAWING).setIcon(R.drawable.ic_tab_drawing);
         tabLayout.getTabAt(TAB_VOICE).setIcon(R.drawable.ic_tab_voice);
+        //tabLayout.getTabAt(TAB_DRAWING).setIcon(R.drawable.ic_tab_drawing);
     }
 
     public void setCurrentTab(int tab) {
@@ -123,9 +123,9 @@ public class MainActivity extends AppCompatActivity {
     // Alarms that activate after a certain time.
     static final int TAB_HISTORY = 2;
     // Alarms that activate after a certain time.
-    static final int TAB_DRAWING = 3;
+    static final int TAB_VOICE = 3;
     // Alarms that activate after a certain time.
-    static final int TAB_VOICE = 4;
+    static final int TAB_DRAWING = 4;
     // The number of tabs.
     static final int COUNT_TABS = 5;
 
