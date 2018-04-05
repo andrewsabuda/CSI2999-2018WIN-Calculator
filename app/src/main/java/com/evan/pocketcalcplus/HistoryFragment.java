@@ -31,7 +31,6 @@ public class HistoryFragment extends Fragment {
 
         // Set the background color.
         this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
-        ((MainActivity) getActivity()).toggleViewPager(false);
     }
 
 }

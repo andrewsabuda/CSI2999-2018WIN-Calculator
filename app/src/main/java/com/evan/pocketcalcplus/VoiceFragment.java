@@ -2,14 +2,19 @@ package com.evan.pocketcalcplus;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.speech.RecognitionService;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,10 +22,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
-import java.util.ArrayList;
+import org.w3c.dom.Text;
+
 import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Set;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -42,6 +53,7 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
 
         editTextCalculatorScreen = view.findViewById(R.id.editTextCalculatorScreenVoice);
 
+        view.findViewById(R.id.btnRecord).setOnClickListener(this);
         view.findViewById(R.id.btnSpeak).setOnClickListener(this);
         view.findViewById(R.id.btnSpeak).setBackgroundColor(SettingsActivity.getOperationColor(this.getActivity()));
 
@@ -64,24 +76,11 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
     public void onResume() {
         super.onResume();
 
-        mTTS = new TextToSpeech(getActivity(), this);
-
         // Refresh the text.
         editTextCalculatorScreen.setTextKeepState(prettifyInput(((MainActivity) getActivity()).currentInput));
         // Set the background color.
         this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
-
-        ((MainActivity) getActivity()).toggleViewPager(false);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (mTTS != null) {
-            mTTS.stop();
-            mTTS.shutdown();
-            mTTS = null;
-        }
+        setButtonColor(this.getView(), SettingsActivity.getOperationColor(this.getActivity()));
     }
 
     @Override
@@ -149,7 +148,6 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
                 }
                 break;
         }
-        //text to speech changes
         solveAndSpeak();
     }
 
@@ -169,15 +167,20 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
 
     @Override
     public void onInit(int status) {
-            if (status == TextToSpeech.SUCCESS) {
-                int result = mTTS.setLanguage(Locale.US);
+        if (status == TextToSpeech.SUCCESS) {
+            int result = mTTS.setLanguage(Locale.US);
 
-                if (result == TextToSpeech.LANG_MISSING_DATA
-                        || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                    Log.e("TTS", "Language not supported");
+            if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "Language not supported: " + result);
+            } else if (result == TextToSpeech.LANG_COUNTRY_AVAILABLE
+                || result == TextToSpeech.LANG_AVAILABLE || result == TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE) {
+                Log.i("TTS", "Initialized successfully: " + result);
             } else {
-                Log.e("TTS", "Initialization failed");
+                Log.e("TTS", "Language failed: " + result);
             }
+        } else {
+            Log.e("TTS", "Initialization failed: " + status);
         }
     }
 
@@ -195,8 +198,8 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
         if (mTTS != null) {
             mTTS.stop();
             mTTS.shutdown();
-            mTTS = null;
         }
+
         super.onDestroy();
     }
 

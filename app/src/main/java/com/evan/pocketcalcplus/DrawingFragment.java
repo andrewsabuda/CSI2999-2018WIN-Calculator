@@ -118,7 +118,6 @@ public class DrawingFragment extends Fragment implements View.OnClickListener {
 
         // Set the background color.
         this.getView().setBackgroundColor(SettingsActivity.getBackgroundColor(this.getActivity()));
-        ((MainActivity) getActivity()).toggleViewPager(false);
 
         setOperationButtonColor(this.getView(), SettingsActivity.getOperationColor(this.getActivity()));
         documentController.loadState();

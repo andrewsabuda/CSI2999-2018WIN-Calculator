@@ -33,12 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
     private TogglableViewPager viewPager;
 
-    public void toggleViewPager(boolean enabled) {
-        // Set whether the view pager can swipe between tabs or not.
-        // Disable swiping on drawing tab.
-        viewPager.setPagingEnabled(enabled);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         viewPager = findViewById(R.id.container);
         setupViewPager(viewPager);
+        viewPager.setPagingEnabled(false);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
