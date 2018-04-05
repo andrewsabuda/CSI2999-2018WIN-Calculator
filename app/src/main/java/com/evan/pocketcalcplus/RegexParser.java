@@ -83,7 +83,7 @@ public class RegexParser {
     }
 
     private static BigDecimal parsePrefixRecursive(ArrayList<String> input)
-        throws ArithmeticException {
+        throws ArithmeticException, NumberFormatException {
         // Pop the first element of the array list.
         if (input.size() == 0) return new BigDecimal("0");
 
@@ -233,8 +233,13 @@ public class RegexParser {
     }
 
     static String parseEquation(String equation) {
-        String prefixEquation = inputToPrefix(equation);
-        BigDecimal parsedBigDecimal = parsePrefix(prefixEquation);
-        return parsedBigDecimal.toPlainString();
+        try {
+            String prefixEquation = inputToPrefix(equation);
+            BigDecimal parsedBigDecimal = parsePrefix(prefixEquation);
+            return parsedBigDecimal.toPlainString();
+        } catch (Exception e) {
+            // Parsing failed.
+            return "Failed";
+        }
     }
 }

@@ -195,12 +195,11 @@ public class VoiceFragment extends Fragment implements View.OnClickListener, Tex
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
         if (mTTS != null) {
             mTTS.stop();
             mTTS.shutdown();
         }
-
-        super.onDestroy();
     }
 
 }

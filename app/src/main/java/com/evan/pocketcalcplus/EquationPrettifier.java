@@ -18,6 +18,8 @@ public class EquationPrettifier {
     }
 
     public static String prettifyInput(String input) {
+        if (input.equals("Failed")) return input;
+
         StringBuilder output = new StringBuilder();
         LinkedList<Character> buffer = new LinkedList<>();
 
